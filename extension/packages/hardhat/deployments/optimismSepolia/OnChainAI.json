@@ -1,0 +1,637 @@
+{
+  "address": "0xd1ca741de2d2975822ADf4646Cf0A8AE3Df51c78",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "router",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "javascript_",
+          "type": "string"
+        },
+        {
+          "internalType": "uint64",
+          "name": "subscriptionId_",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint32",
+          "name": "gasLimit_",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "donId_",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "EmptyArgs",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EmptySource",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NoInlineSecrets",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyRouterCanFulfill",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "requestId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "UnexpectedRequestID",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "javascript",
+          "type": "string"
+        }
+      ],
+      "name": "Javascript",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferRequested",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "requestId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "request",
+          "type": "string"
+        }
+      ],
+      "name": "Request",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "RequestFulfilled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "RequestSent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "requestId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "response",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "err",
+          "type": "string"
+        }
+      ],
+      "name": "Response",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "donHostedSecretsVersion",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "donId",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gasLimit",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "requestId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "response",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "err",
+          "type": "bytes"
+        }
+      ],
+      "name": "handleOracleFulfillment",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "javascript",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastError",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastRequestId",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastResponse",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastUserPrompt",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "userPrompt",
+          "type": "string"
+        }
+      ],
+      "name": "sendRequest",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "donHostedSecretsVersion_",
+          "type": "uint64"
+        }
+      ],
+      "name": "setDonHostedSecretsVersion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "donId_",
+          "type": "bytes32"
+        }
+      ],
+      "name": "setDonID",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "gasLimit_",
+          "type": "uint32"
+        }
+      ],
+      "name": "setGasLimit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "javascript_",
+          "type": "string"
+        }
+      ],
+      "name": "setJavascript",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "subscriptionId_",
+          "type": "uint64"
+        }
+      ],
+      "name": "setSubscriptionId",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "subscriptionId",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "receiver",
+          "type": "address"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x80c92c711a50fa34cd111bb5d6172204be032133c9102d63cbcc76eedfa5967a",
+  "receipt": {
+    "to": null,
+    "from": "0xE12ABD30a1BfC6050f374fB026814631607d8E5D",
+    "contractAddress": "0xd1ca741de2d2975822ADf4646Cf0A8AE3Df51c78",
+    "transactionIndex": 2,
+    "gasUsed": "2141446",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xbe3641be73f613778a7c101340ed5aea866dcb951f9ca8a5a2777c45ded4a275",
+    "transactionHash": "0x80c92c711a50fa34cd111bb5d6172204be032133c9102d63cbcc76eedfa5967a",
+    "logs": [],
+    "blockNumber": 16564152,
+    "cumulativeGasUsed": "2768880",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xC17094E3A1348E5C7544D4fF8A36c28f2C6AAE28",
+    "if (!secrets.openaiKey) throw Error(\"Need OPENAI_KEY environment variable\");\n\nconst data = {\n  model: \"gpt-4o-mini\",\n  messages: [{ role: \"user\", content: args[0] }],\n};\n\nconst openAiResponse = await Functions.makeHttpRequest({\n  url: \"https://api.openai.com/v1/chat/completions\",\n  method: \"POST\",\n  headers: {\n    \"Content-Type\": `application/json`,\n    Authorization: `Bearer ${secrets.openaiKey}`,\n  },\n  data: data,\n});\n\nconst result = openAiResponse.error\n  ? `ERROR ${openAiResponse.message}`\n  : openAiResponse.data.choices[0].message.content;\nconsole.log(\"result:\", result);\n\nreturn Functions.encodeString(result);\n",
+    227,
+    300000,
+    "0x66756e2d6f7074696d69736d2d7365706f6c69612d3100000000000000000000"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "afe7029826ec5b78638ed3449e88481f",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"javascript_\",\"type\":\"string\"},{\"internalType\":\"uint64\",\"name\":\"subscriptionId_\",\"type\":\"uint64\"},{\"internalType\":\"uint32\",\"name\":\"gasLimit_\",\"type\":\"uint32\"},{\"internalType\":\"bytes32\",\"name\":\"donId_\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"EmptyArgs\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"EmptySource\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NoInlineSecrets\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlyRouterCanFulfill\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"requestId\",\"type\":\"bytes32\"}],\"name\":\"UnexpectedRequestID\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"javascript\",\"type\":\"string\"}],\"name\":\"Javascript\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"OwnershipTransferRequested\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"requestId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"request\",\"type\":\"string\"}],\"name\":\"Request\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RequestFulfilled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RequestSent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"requestId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"response\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"err\",\"type\":\"string\"}],\"name\":\"Response\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"donHostedSecretsVersion\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"donId\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gasLimit\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"requestId\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"response\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"err\",\"type\":\"bytes\"}],\"name\":\"handleOracleFulfillment\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"javascript\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastError\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastRequestId\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastResponse\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastUserPrompt\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"userPrompt\",\"type\":\"string\"}],\"name\":\"sendRequest\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"donHostedSecretsVersion_\",\"type\":\"uint64\"}],\"name\":\"setDonHostedSecretsVersion\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"donId_\",\"type\":\"bytes32\"}],\"name\":\"setDonID\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"gasLimit_\",\"type\":\"uint32\"}],\"name\":\"setGasLimit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"javascript_\",\"type\":\"string\"}],\"name\":\"setJavascript\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"subscriptionId_\",\"type\":\"uint64\"}],\"name\":\"setSubscriptionId\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"subscriptionId\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"handleOracleFulfillment(bytes32,bytes,bytes)\":{\"details\":\"Either response or error parameter will be set, but never both.\",\"params\":{\"err\":\"Aggregated error either from the request's source code or from the execution pipeline.\",\"requestId\":\"The requestId returned by FunctionsClient.sendRequest().\",\"response\":\"Aggregated response from the request's source code.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"acceptOwnership()\":{\"notice\":\"Allows an ownership transfer to be completed by the recipient.\"},\"handleOracleFulfillment(bytes32,bytes,bytes)\":{\"notice\":\"Chainlink Functions response handler called by the Functions Router during fullilment from the designated transmitter node in an OCR round.\"},\"owner()\":{\"notice\":\"Get the current owner\"},\"transferOwnership(address)\":{\"notice\":\"Allows an owner to begin transferring ownership to a new address.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/OnchainAI.sol\":\"OnChainAI\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.8/functions/v1_0_0/FunctionsClient.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.19;\\n\\nimport {IFunctionsRouter} from \\\"./interfaces/IFunctionsRouter.sol\\\";\\nimport {IFunctionsClient} from \\\"./interfaces/IFunctionsClient.sol\\\";\\n\\nimport {FunctionsRequest} from \\\"./libraries/FunctionsRequest.sol\\\";\\n\\n/// @title The Chainlink Functions client contract\\n/// @notice Contract developers can inherit this contract in order to make Chainlink Functions requests\\nabstract contract FunctionsClient is IFunctionsClient {\\n  using FunctionsRequest for FunctionsRequest.Request;\\n\\n  IFunctionsRouter internal immutable i_router;\\n\\n  event RequestSent(bytes32 indexed id);\\n  event RequestFulfilled(bytes32 indexed id);\\n\\n  error OnlyRouterCanFulfill();\\n\\n  constructor(address router) {\\n    i_router = IFunctionsRouter(router);\\n  }\\n\\n  /// @notice Sends a Chainlink Functions request\\n  /// @param data The CBOR encoded bytes data for a Functions request\\n  /// @param subscriptionId The subscription ID that will be charged to service the request\\n  /// @param callbackGasLimit the amount of gas that will be available for the fulfillment callback\\n  /// @return requestId The generated request ID for this request\\n  function _sendRequest(\\n    bytes memory data,\\n    uint64 subscriptionId,\\n    uint32 callbackGasLimit,\\n    bytes32 donId\\n  ) internal returns (bytes32) {\\n    bytes32 requestId = i_router.sendRequest(\\n      subscriptionId,\\n      data,\\n      FunctionsRequest.REQUEST_DATA_VERSION,\\n      callbackGasLimit,\\n      donId\\n    );\\n    emit RequestSent(requestId);\\n    return requestId;\\n  }\\n\\n  /// @notice User defined function to handle a response from the DON\\n  /// @param requestId The request ID, returned by sendRequest()\\n  /// @param response Aggregated response from the execution of the user's source code\\n  /// @param err Aggregated error from the execution of the user code or from the execution pipeline\\n  /// @dev Either response or error parameter will be set, but never both\\n  function fulfillRequest(bytes32 requestId, bytes memory response, bytes memory err) internal virtual;\\n\\n  /// @inheritdoc IFunctionsClient\\n  function handleOracleFulfillment(bytes32 requestId, bytes memory response, bytes memory err) external override {\\n    if (msg.sender != address(i_router)) {\\n      revert OnlyRouterCanFulfill();\\n    }\\n    fulfillRequest(requestId, response, err);\\n    emit RequestFulfilled(requestId);\\n  }\\n}\\n\",\"keccak256\":\"0x40224641403cb9fa03d4f060296d7420a9ff11b46abadc958ae048459205e397\",\"license\":\"MIT\"},\"@chainlink/contracts/src/v0.8/functions/v1_0_0/interfaces/IFunctionsClient.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.19;\\n\\n/// @title Chainlink Functions client interface.\\ninterface IFunctionsClient {\\n  /// @notice Chainlink Functions response handler called by the Functions Router\\n  /// during fullilment from the designated transmitter node in an OCR round.\\n  /// @param requestId The requestId returned by FunctionsClient.sendRequest().\\n  /// @param response Aggregated response from the request's source code.\\n  /// @param err Aggregated error either from the request's source code or from the execution pipeline.\\n  /// @dev Either response or error parameter will be set, but never both.\\n  function handleOracleFulfillment(bytes32 requestId, bytes memory response, bytes memory err) external;\\n}\\n\",\"keccak256\":\"0x6117b82e7c4eec44ce557b0fc8bc1ac5f49e5d160ac6d4485452d6aafdd762ff\",\"license\":\"MIT\"},\"@chainlink/contracts/src/v0.8/functions/v1_0_0/interfaces/IFunctionsRouter.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.19;\\n\\nimport {FunctionsResponse} from \\\"../libraries/FunctionsResponse.sol\\\";\\n\\n/// @title Chainlink Functions Router interface.\\ninterface IFunctionsRouter {\\n  /// @notice The identifier of the route to retrieve the address of the access control contract\\n  /// The access control contract controls which accounts can manage subscriptions\\n  /// @return id - bytes32 id that can be passed to the \\\"getContractById\\\" of the Router\\n  function getAllowListId() external view returns (bytes32);\\n\\n  /// @notice Set the identifier of the route to retrieve the address of the access control contract\\n  /// The access control contract controls which accounts can manage subscriptions\\n  function setAllowListId(bytes32 allowListId) external;\\n\\n  /// @notice Get the flat fee (in Juels of LINK) that will be paid to the Router owner for operation of the network\\n  /// @return adminFee\\n  function getAdminFee() external view returns (uint72 adminFee);\\n\\n  /// @notice Sends a request using the provided subscriptionId\\n  /// @param subscriptionId - A unique subscription ID allocated by billing system,\\n  /// a client can make requests from different contracts referencing the same subscription\\n  /// @param data - CBOR encoded Chainlink Functions request data, use FunctionsClient API to encode a request\\n  /// @param dataVersion - Gas limit for the fulfillment callback\\n  /// @param callbackGasLimit - Gas limit for the fulfillment callback\\n  /// @param donId - An identifier used to determine which route to send the request along\\n  /// @return requestId - A unique request identifier\\n  function sendRequest(\\n    uint64 subscriptionId,\\n    bytes calldata data,\\n    uint16 dataVersion,\\n    uint32 callbackGasLimit,\\n    bytes32 donId\\n  ) external returns (bytes32);\\n\\n  /// @notice Sends a request to the proposed contracts\\n  /// @param subscriptionId - A unique subscription ID allocated by billing system,\\n  /// a client can make requests from different contracts referencing the same subscription\\n  /// @param data - CBOR encoded Chainlink Functions request data, use FunctionsClient API to encode a request\\n  /// @param dataVersion - Gas limit for the fulfillment callback\\n  /// @param callbackGasLimit - Gas limit for the fulfillment callback\\n  /// @param donId - An identifier used to determine which route to send the request along\\n  /// @return requestId - A unique request identifier\\n  function sendRequestToProposed(\\n    uint64 subscriptionId,\\n    bytes calldata data,\\n    uint16 dataVersion,\\n    uint32 callbackGasLimit,\\n    bytes32 donId\\n  ) external returns (bytes32);\\n\\n  /// @notice Fulfill the request by:\\n  /// - calling back the data that the Oracle returned to the client contract\\n  /// - pay the DON for processing the request\\n  /// @dev Only callable by the Coordinator contract that is saved in the commitment\\n  /// @param response response data from DON consensus\\n  /// @param err error from DON consensus\\n  /// @param juelsPerGas - current rate of juels/gas\\n  /// @param costWithoutFulfillment - The cost of processing the request (in Juels of LINK ), without fulfillment\\n  /// @param transmitter - The Node that transmitted the OCR report\\n  /// @param commitment - The parameters of the request that must be held consistent between request and response time\\n  /// @return fulfillResult -\\n  /// @return callbackGasCostJuels -\\n  function fulfill(\\n    bytes memory response,\\n    bytes memory err,\\n    uint96 juelsPerGas,\\n    uint96 costWithoutFulfillment,\\n    address transmitter,\\n    FunctionsResponse.Commitment memory commitment\\n  ) external returns (FunctionsResponse.FulfillResult, uint96);\\n\\n  /// @notice Validate requested gas limit is below the subscription max.\\n  /// @param subscriptionId subscription ID\\n  /// @param callbackGasLimit desired callback gas limit\\n  function isValidCallbackGasLimit(uint64 subscriptionId, uint32 callbackGasLimit) external view;\\n\\n  /// @notice Get the current contract given an ID\\n  /// @param id A bytes32 identifier for the route\\n  /// @return contract The current contract address\\n  function getContractById(bytes32 id) external view returns (address);\\n\\n  /// @notice Get the proposed next contract given an ID\\n  /// @param id A bytes32 identifier for the route\\n  /// @return contract The current or proposed contract address\\n  function getProposedContractById(bytes32 id) external view returns (address);\\n\\n  /// @notice Return the latest proprosal set\\n  /// @return ids The identifiers of the contracts to update\\n  /// @return to The addresses of the contracts that will be updated to\\n  function getProposedContractSet() external view returns (bytes32[] memory, address[] memory);\\n\\n  /// @notice Proposes one or more updates to the contract routes\\n  /// @dev Only callable by owner\\n  function proposeContractsUpdate(bytes32[] memory proposalSetIds, address[] memory proposalSetAddresses) external;\\n\\n  /// @notice Updates the current contract routes to the proposed contracts\\n  /// @dev Only callable by owner\\n  function updateContracts() external;\\n\\n  /// @dev Puts the system into an emergency stopped state.\\n  /// @dev Only callable by owner\\n  function pause() external;\\n\\n  /// @dev Takes the system out of an emergency stopped state.\\n  /// @dev Only callable by owner\\n  function unpause() external;\\n}\\n\",\"keccak256\":\"0x44db41e8ff90c2828ca0ada125abc4b411921a86514a4a047fd9fd43ba9d7e08\",\"license\":\"MIT\"},\"@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.19;\\n\\nimport {CBOR} from \\\"../../../vendor/solidity-cborutils/v2.0.0/CBOR.sol\\\";\\n\\n/// @title Library for encoding the input data of a Functions request into CBOR\\nlibrary FunctionsRequest {\\n  using CBOR for CBOR.CBORBuffer;\\n\\n  uint16 public constant REQUEST_DATA_VERSION = 1;\\n  uint256 internal constant DEFAULT_BUFFER_SIZE = 256;\\n\\n  enum Location {\\n    Inline, // Provided within the Request\\n    Remote, // Hosted through remote location that can be accessed through a provided URL\\n    DONHosted // Hosted on the DON's storage\\n  }\\n\\n  enum CodeLanguage {\\n    JavaScript\\n    // In future version we may add other languages\\n  }\\n\\n  struct Request {\\n    Location codeLocation; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 The location of the source code that will be executed on each node in the DON\\n    Location secretsLocation; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 The location of secrets that will be passed into the source code. *Only Remote secrets are supported\\n    CodeLanguage language; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 The coding language that the source code is written in\\n    string source; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 Raw source code for Request.codeLocation of Location.Inline, URL for Request.codeLocation of Location.Remote, or slot decimal number for Request.codeLocation of Location.DONHosted\\n    bytes encryptedSecretsReference; // \\u2550\\u2550\\u2578 Encrypted URLs for Request.secretsLocation of Location.Remote (use addSecretsReference()), or CBOR encoded slotid+version for Request.secretsLocation of Location.DONHosted (use addDONHostedSecrets())\\n    string[] args; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 String arguments that will be passed into the source code\\n    bytes[] bytesArgs; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 Bytes arguments that will be passed into the source code\\n  }\\n\\n  error EmptySource();\\n  error EmptySecrets();\\n  error EmptyArgs();\\n  error NoInlineSecrets();\\n\\n  /// @notice Encodes a Request to CBOR encoded bytes\\n  /// @param self The request to encode\\n  /// @return CBOR encoded bytes\\n  function encodeCBOR(Request memory self) internal pure returns (bytes memory) {\\n    CBOR.CBORBuffer memory buffer = CBOR.create(DEFAULT_BUFFER_SIZE);\\n\\n    buffer.writeString(\\\"codeLocation\\\");\\n    buffer.writeUInt256(uint256(self.codeLocation));\\n\\n    buffer.writeString(\\\"language\\\");\\n    buffer.writeUInt256(uint256(self.language));\\n\\n    buffer.writeString(\\\"source\\\");\\n    buffer.writeString(self.source);\\n\\n    if (self.args.length > 0) {\\n      buffer.writeString(\\\"args\\\");\\n      buffer.startArray();\\n      for (uint256 i = 0; i < self.args.length; ++i) {\\n        buffer.writeString(self.args[i]);\\n      }\\n      buffer.endSequence();\\n    }\\n\\n    if (self.encryptedSecretsReference.length > 0) {\\n      if (self.secretsLocation == Location.Inline) {\\n        revert NoInlineSecrets();\\n      }\\n      buffer.writeString(\\\"secretsLocation\\\");\\n      buffer.writeUInt256(uint256(self.secretsLocation));\\n      buffer.writeString(\\\"secrets\\\");\\n      buffer.writeBytes(self.encryptedSecretsReference);\\n    }\\n\\n    if (self.bytesArgs.length > 0) {\\n      buffer.writeString(\\\"bytesArgs\\\");\\n      buffer.startArray();\\n      for (uint256 i = 0; i < self.bytesArgs.length; ++i) {\\n        buffer.writeBytes(self.bytesArgs[i]);\\n      }\\n      buffer.endSequence();\\n    }\\n\\n    return buffer.buf.buf;\\n  }\\n\\n  /// @notice Initializes a Chainlink Functions Request\\n  /// @dev Sets the codeLocation and code on the request\\n  /// @param self The uninitialized request\\n  /// @param codeLocation The user provided source code location\\n  /// @param language The programming language of the user code\\n  /// @param source The user provided source code or a url\\n  function initializeRequest(\\n    Request memory self,\\n    Location codeLocation,\\n    CodeLanguage language,\\n    string memory source\\n  ) internal pure {\\n    if (bytes(source).length == 0) revert EmptySource();\\n\\n    self.codeLocation = codeLocation;\\n    self.language = language;\\n    self.source = source;\\n  }\\n\\n  /// @notice Initializes a Chainlink Functions Request\\n  /// @dev Simplified version of initializeRequest for PoC\\n  /// @param self The uninitialized request\\n  /// @param javaScriptSource The user provided JS code (must not be empty)\\n  function initializeRequestForInlineJavaScript(Request memory self, string memory javaScriptSource) internal pure {\\n    initializeRequest(self, Location.Inline, CodeLanguage.JavaScript, javaScriptSource);\\n  }\\n\\n  /// @notice Adds Remote user encrypted secrets to a Request\\n  /// @param self The initialized request\\n  /// @param encryptedSecretsReference Encrypted comma-separated string of URLs pointing to off-chain secrets\\n  function addSecretsReference(Request memory self, bytes memory encryptedSecretsReference) internal pure {\\n    if (encryptedSecretsReference.length == 0) revert EmptySecrets();\\n\\n    self.secretsLocation = Location.Remote;\\n    self.encryptedSecretsReference = encryptedSecretsReference;\\n  }\\n\\n  /// @notice Adds DON-hosted secrets reference to a Request\\n  /// @param self The initialized request\\n  /// @param slotID Slot ID of the user's secrets hosted on DON\\n  /// @param version User data version (for the slotID)\\n  function addDONHostedSecrets(Request memory self, uint8 slotID, uint64 version) internal pure {\\n    CBOR.CBORBuffer memory buffer = CBOR.create(DEFAULT_BUFFER_SIZE);\\n\\n    buffer.writeString(\\\"slotID\\\");\\n    buffer.writeUInt64(slotID);\\n    buffer.writeString(\\\"version\\\");\\n    buffer.writeUInt64(version);\\n\\n    self.secretsLocation = Location.DONHosted;\\n    self.encryptedSecretsReference = buffer.buf.buf;\\n  }\\n\\n  /// @notice Sets args for the user run function\\n  /// @param self The initialized request\\n  /// @param args The array of string args (must not be empty)\\n  function setArgs(Request memory self, string[] memory args) internal pure {\\n    if (args.length == 0) revert EmptyArgs();\\n\\n    self.args = args;\\n  }\\n\\n  /// @notice Sets bytes args for the user run function\\n  /// @param self The initialized request\\n  /// @param args The array of bytes args (must not be empty)\\n  function setBytesArgs(Request memory self, bytes[] memory args) internal pure {\\n    if (args.length == 0) revert EmptyArgs();\\n\\n    self.bytesArgs = args;\\n  }\\n}\\n\",\"keccak256\":\"0xed75be0eaba358d468f1fe18adc377d5044f57eff0070081f884a1f212d0adc2\",\"license\":\"MIT\"},\"@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsResponse.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.19;\\n\\n/// @title Library of types that are used for fulfillment of a Functions request\\nlibrary FunctionsResponse {\\n  // Used to send request information from the Router to the Coordinator\\n  struct RequestMeta {\\n    bytes data; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 CBOR encoded Chainlink Functions request data, use FunctionsRequest library to encode a request\\n    bytes32 flags; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 Per-subscription flags\\n    address requestingContract; // \\u2550\\u2550\\u2557 The client contract that is sending the request\\n    uint96 availableBalance; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u255d Common LINK balance of the subscription that is controlled by the Router to be used for all consumer requests.\\n    uint72 adminFee; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2557 Flat fee (in Juels of LINK) that will be paid to the Router Owner for operation of the network\\n    uint64 subscriptionId; //        \\u2551 Identifier of the billing subscription that will be charged for the request\\n    uint64 initiatedRequests; //     \\u2551 The number of requests that have been started\\n    uint32 callbackGasLimit; //      \\u2551 The amount of gas that the callback to the consuming contract will be given\\n    uint16 dataVersion; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d The version of the structure of the CBOR encoded request data\\n    uint64 completedRequests; // \\u2550\\u2550\\u2550\\u2550\\u2557 The number of requests that have successfully completed or timed out\\n    address subscriptionOwner; // \\u2550\\u2550\\u2550\\u255d The owner of the billing subscription\\n  }\\n\\n  enum FulfillResult {\\n    FULFILLED, // 0\\n    USER_CALLBACK_ERROR, // 1\\n    INVALID_REQUEST_ID, // 2\\n    COST_EXCEEDS_COMMITMENT, // 3\\n    INSUFFICIENT_GAS_PROVIDED, // 4\\n    SUBSCRIPTION_BALANCE_INVARIANT_VIOLATION, // 5\\n    INVALID_COMMITMENT // 6\\n  }\\n\\n  struct Commitment {\\n    bytes32 requestId; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2578 A unique identifier for a Chainlink Functions request\\n    address coordinator; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2557 The Coordinator contract that manages the DON that is servicing a request\\n    uint96 estimatedTotalCostJuels; // \\u2550\\u2550\\u2550\\u2550\\u255d The maximum cost in Juels (1e18) of LINK that will be charged to fulfill a request\\n    address client; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2557 The client contract that sent the request\\n    uint64 subscriptionId; //              \\u2551 Identifier of the billing subscription that will be charged for the request\\n    uint32 callbackGasLimit; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d The amount of gas that the callback to the consuming contract will be given\\n    uint72 adminFee; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2557 Flat fee (in Juels of LINK) that will be paid to the Router Owner for operation of the network\\n    uint72 donFee; //                      \\u2551 Fee (in Juels of LINK) that will be split between Node Operators for servicing a request\\n    uint40 gasOverheadBeforeCallback; //   \\u2551 Represents the average gas execution cost before the fulfillment callback.\\n    uint40 gasOverheadAfterCallback; //    \\u2551 Represents the average gas execution cost after the fulfillment callback.\\n    uint32 timeoutTimestamp; // \\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d The timestamp at which a request will be eligible to be timed out\\n  }\\n}\\n\",\"keccak256\":\"0xc72eb037effef32146f7cd4086af00f44f28c8649d891e5e404fec5fda7e802b\",\"license\":\"MIT\"},\"@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport {ConfirmedOwnerWithProposal} from \\\"./ConfirmedOwnerWithProposal.sol\\\";\\n\\n/// @title The ConfirmedOwner contract\\n/// @notice A contract with helpers for basic contract ownership.\\ncontract ConfirmedOwner is ConfirmedOwnerWithProposal {\\n  constructor(address newOwner) ConfirmedOwnerWithProposal(newOwner, address(0)) {}\\n}\\n\",\"keccak256\":\"0xdcb0e9135ddbe71ee27ba99fa06656960c66c964cf2ecb29696da1c1427d9861\",\"license\":\"MIT\"},\"@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwnerWithProposal.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport {IOwnable} from \\\"../interfaces/IOwnable.sol\\\";\\n\\n/// @title The ConfirmedOwner contract\\n/// @notice A contract with helpers for basic contract ownership.\\ncontract ConfirmedOwnerWithProposal is IOwnable {\\n  address private s_owner;\\n  address private s_pendingOwner;\\n\\n  event OwnershipTransferRequested(address indexed from, address indexed to);\\n  event OwnershipTransferred(address indexed from, address indexed to);\\n\\n  constructor(address newOwner, address pendingOwner) {\\n    // solhint-disable-next-line gas-custom-errors\\n    require(newOwner != address(0), \\\"Cannot set owner to zero\\\");\\n\\n    s_owner = newOwner;\\n    if (pendingOwner != address(0)) {\\n      _transferOwnership(pendingOwner);\\n    }\\n  }\\n\\n  /// @notice Allows an owner to begin transferring ownership to a new address.\\n  function transferOwnership(address to) public override onlyOwner {\\n    _transferOwnership(to);\\n  }\\n\\n  /// @notice Allows an ownership transfer to be completed by the recipient.\\n  function acceptOwnership() external override {\\n    // solhint-disable-next-line gas-custom-errors\\n    require(msg.sender == s_pendingOwner, \\\"Must be proposed owner\\\");\\n\\n    address oldOwner = s_owner;\\n    s_owner = msg.sender;\\n    s_pendingOwner = address(0);\\n\\n    emit OwnershipTransferred(oldOwner, msg.sender);\\n  }\\n\\n  /// @notice Get the current owner\\n  function owner() public view override returns (address) {\\n    return s_owner;\\n  }\\n\\n  /// @notice validate, transfer ownership, and emit relevant events\\n  function _transferOwnership(address to) private {\\n    // solhint-disable-next-line gas-custom-errors\\n    require(to != msg.sender, \\\"Cannot transfer to self\\\");\\n\\n    s_pendingOwner = to;\\n\\n    emit OwnershipTransferRequested(s_owner, to);\\n  }\\n\\n  /// @notice validate access\\n  function _validateOwnership() internal view {\\n    // solhint-disable-next-line gas-custom-errors\\n    require(msg.sender == s_owner, \\\"Only callable by owner\\\");\\n  }\\n\\n  /// @notice Reverts if called by anyone other than the contract owner.\\n  modifier onlyOwner() {\\n    _validateOwnership();\\n    _;\\n  }\\n}\\n\",\"keccak256\":\"0x2422a055657a87e98be61f8f31abb1824ec50fd0f73949f4e3c6ac877efb6da8\",\"license\":\"MIT\"},\"@chainlink/contracts/src/v0.8/shared/interfaces/IOwnable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ninterface IOwnable {\\n  function owner() external returns (address);\\n\\n  function transferOwnership(address recipient) external;\\n\\n  function acceptOwnership() external;\\n}\\n\",\"keccak256\":\"0x885de72b7b4e4f1bf8ba817a3f2bcc37fd9022d342c4ce76782151c30122d767\",\"license\":\"MIT\"},\"@chainlink/contracts/src/v0.8/vendor/@ensdomains/buffer/v0.1.0/Buffer.sol\":{\"content\":\"// SPDX-License-Identifier: BSD-2-Clause\\npragma solidity ^0.8.4;\\n\\n/**\\n* @dev A library for working with mutable byte buffers in Solidity.\\n*\\n* Byte buffers are mutable and expandable, and provide a variety of primitives\\n* for appending to them. At any time you can fetch a bytes object containing the\\n* current contents of the buffer. The bytes object should not be stored between\\n* operations, as it may change due to resizing of the buffer.\\n*/\\nlibrary Buffer {\\n    /**\\n    * @dev Represents a mutable buffer. Buffers have a current value (buf) and\\n    *      a capacity. The capacity may be longer than the current value, in\\n    *      which case it can be extended without the need to allocate more memory.\\n    */\\n    struct buffer {\\n        bytes buf;\\n        uint capacity;\\n    }\\n\\n    /**\\n    * @dev Initializes a buffer with an initial capacity.\\n    * @param buf The buffer to initialize.\\n    * @param capacity The number of bytes of space to allocate the buffer.\\n    * @return The buffer, for chaining.\\n    */\\n    function init(buffer memory buf, uint capacity) internal pure returns(buffer memory) {\\n        if (capacity % 32 != 0) {\\n            capacity += 32 - (capacity % 32);\\n        }\\n        // Allocate space for the buffer data\\n        buf.capacity = capacity;\\n        assembly {\\n            let ptr := mload(0x40)\\n            mstore(buf, ptr)\\n            mstore(ptr, 0)\\n            let fpm := add(32, add(ptr, capacity))\\n            if lt(fpm, ptr) {\\n                revert(0, 0)\\n            }\\n            mstore(0x40, fpm)\\n        }\\n        return buf;\\n    }\\n\\n    /**\\n    * @dev Initializes a new buffer from an existing bytes object.\\n    *      Changes to the buffer may mutate the original value.\\n    * @param b The bytes object to initialize the buffer with.\\n    * @return A new buffer.\\n    */\\n    function fromBytes(bytes memory b) internal pure returns(buffer memory) {\\n        buffer memory buf;\\n        buf.buf = b;\\n        buf.capacity = b.length;\\n        return buf;\\n    }\\n\\n    function resize(buffer memory buf, uint capacity) private pure {\\n        bytes memory oldbuf = buf.buf;\\n        init(buf, capacity);\\n        append(buf, oldbuf);\\n    }\\n\\n    /**\\n    * @dev Sets buffer length to 0.\\n    * @param buf The buffer to truncate.\\n    * @return The original buffer, for chaining..\\n    */\\n    function truncate(buffer memory buf) internal pure returns (buffer memory) {\\n        assembly {\\n            let bufptr := mload(buf)\\n            mstore(bufptr, 0)\\n        }\\n        return buf;\\n    }\\n\\n    /**\\n    * @dev Appends len bytes of a byte string to a buffer. Resizes if doing so would exceed\\n    *      the capacity of the buffer.\\n    * @param buf The buffer to append to.\\n    * @param data The data to append.\\n    * @param len The number of bytes to copy.\\n    * @return The original buffer, for chaining.\\n    */\\n    function append(buffer memory buf, bytes memory data, uint len) internal pure returns(buffer memory) {\\n        require(len <= data.length);\\n\\n        uint off = buf.buf.length;\\n        uint newCapacity = off + len;\\n        if (newCapacity > buf.capacity) {\\n            resize(buf, newCapacity * 2);\\n        }\\n\\n        uint dest;\\n        uint src;\\n        assembly {\\n            // Memory address of the buffer data\\n            let bufptr := mload(buf)\\n            // Length of existing buffer data\\n            let buflen := mload(bufptr)\\n            // Start address = buffer address + offset + sizeof(buffer length)\\n            dest := add(add(bufptr, 32), off)\\n            // Update buffer length if we're extending it\\n            if gt(newCapacity, buflen) {\\n                mstore(bufptr, newCapacity)\\n            }\\n            src := add(data, 32)\\n        }\\n\\n        // Copy word-length chunks while possible\\n        for (; len >= 32; len -= 32) {\\n            assembly {\\n                mstore(dest, mload(src))\\n            }\\n            dest += 32;\\n            src += 32;\\n        }\\n\\n        // Copy remaining bytes\\n        unchecked {\\n            uint mask = (256 ** (32 - len)) - 1;\\n            assembly {\\n                let srcpart := and(mload(src), not(mask))\\n                let destpart := and(mload(dest), mask)\\n                mstore(dest, or(destpart, srcpart))\\n            }\\n        }\\n\\n        return buf;\\n    }\\n\\n    /**\\n    * @dev Appends a byte string to a buffer. Resizes if doing so would exceed\\n    *      the capacity of the buffer.\\n    * @param buf The buffer to append to.\\n    * @param data The data to append.\\n    * @return The original buffer, for chaining.\\n    */\\n    function append(buffer memory buf, bytes memory data) internal pure returns (buffer memory) {\\n        return append(buf, data, data.length);\\n    }\\n\\n    /**\\n    * @dev Appends a byte to the buffer. Resizes if doing so would exceed the\\n    *      capacity of the buffer.\\n    * @param buf The buffer to append to.\\n    * @param data The data to append.\\n    * @return The original buffer, for chaining.\\n    */\\n    function appendUint8(buffer memory buf, uint8 data) internal pure returns(buffer memory) {\\n        uint off = buf.buf.length;\\n        uint offPlusOne = off + 1;\\n        if (off >= buf.capacity) {\\n            resize(buf, offPlusOne * 2);\\n        }\\n\\n        assembly {\\n            // Memory address of the buffer data\\n            let bufptr := mload(buf)\\n            // Address = buffer address + sizeof(buffer length) + off\\n            let dest := add(add(bufptr, off), 32)\\n            mstore8(dest, data)\\n            // Update buffer length if we extended it\\n            if gt(offPlusOne, mload(bufptr)) {\\n                mstore(bufptr, offPlusOne)\\n            }\\n        }\\n\\n        return buf;\\n    }\\n\\n    /**\\n    * @dev Appends len bytes of bytes32 to a buffer. Resizes if doing so would\\n    *      exceed the capacity of the buffer.\\n    * @param buf The buffer to append to.\\n    * @param data The data to append.\\n    * @param len The number of bytes to write (left-aligned).\\n    * @return The original buffer, for chaining.\\n    */\\n    function append(buffer memory buf, bytes32 data, uint len) private pure returns(buffer memory) {\\n        uint off = buf.buf.length;\\n        uint newCapacity = len + off;\\n        if (newCapacity > buf.capacity) {\\n            resize(buf, newCapacity * 2);\\n        }\\n\\n        unchecked {\\n            uint mask = (256 ** len) - 1;\\n            // Right-align data\\n            data = data >> (8 * (32 - len));\\n            assembly {\\n                // Memory address of the buffer data\\n                let bufptr := mload(buf)\\n                // Address = buffer address + sizeof(buffer length) + newCapacity\\n                let dest := add(bufptr, newCapacity)\\n                mstore(dest, or(and(mload(dest), not(mask)), data))\\n                // Update buffer length if we extended it\\n                if gt(newCapacity, mload(bufptr)) {\\n                    mstore(bufptr, newCapacity)\\n                }\\n            }\\n        }\\n        return buf;\\n    }\\n\\n    /**\\n    * @dev Appends a bytes20 to the buffer. Resizes if doing so would exceed\\n    *      the capacity of the buffer.\\n    * @param buf The buffer to append to.\\n    * @param data The data to append.\\n    * @return The original buffer, for chhaining.\\n    */\\n    function appendBytes20(buffer memory buf, bytes20 data) internal pure returns (buffer memory) {\\n        return append(buf, bytes32(data), 20);\\n    }\\n\\n    /**\\n    * @dev Appends a bytes32 to the buffer. Resizes if doing so would exceed\\n    *      the capacity of the buffer.\\n    * @param buf The buffer to append to.\\n    * @param data The data to append.\\n    * @return The original buffer, for chaining.\\n    */\\n    function appendBytes32(buffer memory buf, bytes32 data) internal pure returns (buffer memory) {\\n        return append(buf, data, 32);\\n    }\\n\\n    /**\\n     * @dev Appends a byte to the end of the buffer. Resizes if doing so would\\n     *      exceed the capacity of the buffer.\\n     * @param buf The buffer to append to.\\n     * @param data The data to append.\\n     * @param len The number of bytes to write (right-aligned).\\n     * @return The original buffer.\\n     */\\n    function appendInt(buffer memory buf, uint data, uint len) internal pure returns(buffer memory) {\\n        uint off = buf.buf.length;\\n        uint newCapacity = len + off;\\n        if (newCapacity > buf.capacity) {\\n            resize(buf, newCapacity * 2);\\n        }\\n\\n        uint mask = (256 ** len) - 1;\\n        assembly {\\n            // Memory address of the buffer data\\n            let bufptr := mload(buf)\\n            // Address = buffer address + sizeof(buffer length) + newCapacity\\n            let dest := add(bufptr, newCapacity)\\n            mstore(dest, or(and(mload(dest), not(mask)), data))\\n            // Update buffer length if we extended it\\n            if gt(newCapacity, mload(bufptr)) {\\n                mstore(bufptr, newCapacity)\\n            }\\n        }\\n        return buf;\\n    }\\n}\",\"keccak256\":\"0x0d86b367813922094e02594a406ba89f5e97d3d74ec2ce3c4032566840e302b0\",\"license\":\"BSD-2-Clause\"},\"@chainlink/contracts/src/v0.8/vendor/solidity-cborutils/v2.0.0/CBOR.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"../../@ensdomains/buffer/v0.1.0/Buffer.sol\\\";\\n\\n/**\\n* @dev A library for populating CBOR encoded payload in Solidity.\\n*\\n* https://datatracker.ietf.org/doc/html/rfc7049\\n*\\n* The library offers various write* and start* methods to encode values of different types.\\n* The resulted buffer can be obtained with data() method.\\n* Encoding of primitive types is staightforward, whereas encoding of sequences can result\\n* in an invalid CBOR if start/write/end flow is violated.\\n* For the purpose of gas saving, the library does not verify start/write/end flow internally,\\n* except for nested start/end pairs.\\n*/\\n\\nlibrary CBOR {\\n    using Buffer for Buffer.buffer;\\n\\n    struct CBORBuffer {\\n        Buffer.buffer buf;\\n        uint256 depth;\\n    }\\n\\n    uint8 private constant MAJOR_TYPE_INT = 0;\\n    uint8 private constant MAJOR_TYPE_NEGATIVE_INT = 1;\\n    uint8 private constant MAJOR_TYPE_BYTES = 2;\\n    uint8 private constant MAJOR_TYPE_STRING = 3;\\n    uint8 private constant MAJOR_TYPE_ARRAY = 4;\\n    uint8 private constant MAJOR_TYPE_MAP = 5;\\n    uint8 private constant MAJOR_TYPE_TAG = 6;\\n    uint8 private constant MAJOR_TYPE_CONTENT_FREE = 7;\\n\\n    uint8 private constant TAG_TYPE_BIGNUM = 2;\\n    uint8 private constant TAG_TYPE_NEGATIVE_BIGNUM = 3;\\n\\n    uint8 private constant CBOR_FALSE = 20;\\n    uint8 private constant CBOR_TRUE = 21;\\n    uint8 private constant CBOR_NULL = 22;\\n    uint8 private constant CBOR_UNDEFINED = 23;\\n\\n    function create(uint256 capacity) internal pure returns(CBORBuffer memory cbor) {\\n        Buffer.init(cbor.buf, capacity);\\n        cbor.depth = 0;\\n        return cbor;\\n    }\\n\\n    function data(CBORBuffer memory buf) internal pure returns(bytes memory) {\\n        require(buf.depth == 0, \\\"Invalid CBOR\\\");\\n        return buf.buf.buf;\\n    }\\n\\n    function writeUInt256(CBORBuffer memory buf, uint256 value) internal pure {\\n        buf.buf.appendUint8(uint8((MAJOR_TYPE_TAG << 5) | TAG_TYPE_BIGNUM));\\n        writeBytes(buf, abi.encode(value));\\n    }\\n\\n    function writeInt256(CBORBuffer memory buf, int256 value) internal pure {\\n        if (value < 0) {\\n            buf.buf.appendUint8(\\n                uint8((MAJOR_TYPE_TAG << 5) | TAG_TYPE_NEGATIVE_BIGNUM)\\n            );\\n            writeBytes(buf, abi.encode(uint256(-1 - value)));\\n        } else {\\n            writeUInt256(buf, uint256(value));\\n        }\\n    }\\n\\n    function writeUInt64(CBORBuffer memory buf, uint64 value) internal pure {\\n        writeFixedNumeric(buf, MAJOR_TYPE_INT, value);\\n    }\\n\\n    function writeInt64(CBORBuffer memory buf, int64 value) internal pure {\\n        if(value >= 0) {\\n            writeFixedNumeric(buf, MAJOR_TYPE_INT, uint64(value));\\n        } else{\\n            writeFixedNumeric(buf, MAJOR_TYPE_NEGATIVE_INT, uint64(-1 - value));\\n        }\\n    }\\n\\n    function writeBytes(CBORBuffer memory buf, bytes memory value) internal pure {\\n        writeFixedNumeric(buf, MAJOR_TYPE_BYTES, uint64(value.length));\\n        buf.buf.append(value);\\n    }\\n\\n    function writeString(CBORBuffer memory buf, string memory value) internal pure {\\n        writeFixedNumeric(buf, MAJOR_TYPE_STRING, uint64(bytes(value).length));\\n        buf.buf.append(bytes(value));\\n    }\\n\\n    function writeBool(CBORBuffer memory buf, bool value) internal pure {\\n        writeContentFree(buf, value ? CBOR_TRUE : CBOR_FALSE);\\n    }\\n\\n    function writeNull(CBORBuffer memory buf) internal pure {\\n        writeContentFree(buf, CBOR_NULL);\\n    }\\n\\n    function writeUndefined(CBORBuffer memory buf) internal pure {\\n        writeContentFree(buf, CBOR_UNDEFINED);\\n    }\\n\\n    function startArray(CBORBuffer memory buf) internal pure {\\n        writeIndefiniteLengthType(buf, MAJOR_TYPE_ARRAY);\\n        buf.depth += 1;\\n    }\\n\\n    function startFixedArray(CBORBuffer memory buf, uint64 length) internal pure {\\n        writeDefiniteLengthType(buf, MAJOR_TYPE_ARRAY, length);\\n    }\\n\\n    function startMap(CBORBuffer memory buf) internal pure {\\n        writeIndefiniteLengthType(buf, MAJOR_TYPE_MAP);\\n        buf.depth += 1;\\n    }\\n\\n    function startFixedMap(CBORBuffer memory buf, uint64 length) internal pure {\\n        writeDefiniteLengthType(buf, MAJOR_TYPE_MAP, length);\\n    }\\n\\n    function endSequence(CBORBuffer memory buf) internal pure {\\n        writeIndefiniteLengthType(buf, MAJOR_TYPE_CONTENT_FREE);\\n        buf.depth -= 1;\\n    }\\n\\n    function writeKVString(CBORBuffer memory buf, string memory key, string memory value) internal pure {\\n        writeString(buf, key);\\n        writeString(buf, value);\\n    }\\n\\n    function writeKVBytes(CBORBuffer memory buf, string memory key, bytes memory value) internal pure {\\n        writeString(buf, key);\\n        writeBytes(buf, value);\\n    }\\n\\n    function writeKVUInt256(CBORBuffer memory buf, string memory key, uint256 value) internal pure {\\n        writeString(buf, key);\\n        writeUInt256(buf, value);\\n    }\\n\\n    function writeKVInt256(CBORBuffer memory buf, string memory key, int256 value) internal pure {\\n        writeString(buf, key);\\n        writeInt256(buf, value);\\n    }\\n\\n    function writeKVUInt64(CBORBuffer memory buf, string memory key, uint64 value) internal pure {\\n        writeString(buf, key);\\n        writeUInt64(buf, value);\\n    }\\n\\n    function writeKVInt64(CBORBuffer memory buf, string memory key, int64 value) internal pure {\\n        writeString(buf, key);\\n        writeInt64(buf, value);\\n    }\\n\\n    function writeKVBool(CBORBuffer memory buf, string memory key, bool value) internal pure {\\n        writeString(buf, key);\\n        writeBool(buf, value);\\n    }\\n\\n    function writeKVNull(CBORBuffer memory buf, string memory key) internal pure {\\n        writeString(buf, key);\\n        writeNull(buf);\\n    }\\n\\n    function writeKVUndefined(CBORBuffer memory buf, string memory key) internal pure {\\n        writeString(buf, key);\\n        writeUndefined(buf);\\n    }\\n\\n    function writeKVMap(CBORBuffer memory buf, string memory key) internal pure {\\n        writeString(buf, key);\\n        startMap(buf);\\n    }\\n\\n    function writeKVArray(CBORBuffer memory buf, string memory key) internal pure {\\n        writeString(buf, key);\\n        startArray(buf);\\n    }\\n\\n    function writeFixedNumeric(\\n        CBORBuffer memory buf,\\n        uint8 major,\\n        uint64 value\\n    ) private pure {\\n        if (value <= 23) {\\n            buf.buf.appendUint8(uint8((major << 5) | value));\\n        } else if (value <= 0xFF) {\\n            buf.buf.appendUint8(uint8((major << 5) | 24));\\n            buf.buf.appendInt(value, 1);\\n        } else if (value <= 0xFFFF) {\\n            buf.buf.appendUint8(uint8((major << 5) | 25));\\n            buf.buf.appendInt(value, 2);\\n        } else if (value <= 0xFFFFFFFF) {\\n            buf.buf.appendUint8(uint8((major << 5) | 26));\\n            buf.buf.appendInt(value, 4);\\n        } else {\\n            buf.buf.appendUint8(uint8((major << 5) | 27));\\n            buf.buf.appendInt(value, 8);\\n        }\\n    }\\n\\n    function writeIndefiniteLengthType(CBORBuffer memory buf, uint8 major)\\n        private\\n        pure\\n    {\\n        buf.buf.appendUint8(uint8((major << 5) | 31));\\n    }\\n\\n    function writeDefiniteLengthType(CBORBuffer memory buf, uint8 major, uint64 length)\\n        private\\n        pure\\n    {\\n        writeFixedNumeric(buf, major, length);\\n    }\\n\\n    function writeContentFree(CBORBuffer memory buf, uint8 value) private pure {\\n        buf.buf.appendUint8(uint8((MAJOR_TYPE_CONTENT_FREE << 5) | value));\\n    }\\n}\",\"keccak256\":\"0xdecf04203502670ac72ba466c75e4f87f4419907365005f0d73e7d07ee3e5715\",\"license\":\"MIT\"},\"contracts/OnchainAI.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\nimport {FunctionsClient} from \\\"@chainlink/contracts/src/v0.8/functions/v1_0_0/FunctionsClient.sol\\\";\\nimport {ConfirmedOwner} from \\\"@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol\\\";\\nimport {FunctionsRequest} from \\\"@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol\\\";\\n\\ncontract OnChainAI is FunctionsClient, ConfirmedOwner {\\n    using FunctionsRequest for FunctionsRequest.Request;\\n\\n    string public javascript;\\n\\n    bytes32 public lastRequestId;\\n    string public lastResponse;\\n    string public lastError;\\n    string public lastUserPrompt;\\n\\n    uint64 public subscriptionId;\\n    uint32 public gasLimit;\\n    bytes32 public donId;\\n    uint64 public donHostedSecretsVersion;\\n\\n    error UnexpectedRequestID(bytes32 requestId);\\n\\n    event Javascript(string javascript);\\n    event Request(bytes32 indexed requestId, string request);\\n    event Response(bytes32 indexed requestId, string response, string err);\\n\\n    constructor(address router, string memory javascript_, uint64 subscriptionId_, uint32 gasLimit_, bytes32 donId_)\\n        FunctionsClient(router)\\n        ConfirmedOwner(msg.sender)\\n    {\\n        javascript = javascript_;\\n        subscriptionId = subscriptionId_;\\n        gasLimit = gasLimit_;\\n        donId = donId_;\\n    }\\n\\n    function setJavascript(string memory javascript_) external onlyOwner {\\n        javascript = javascript_;\\n        emit Javascript(javascript_);\\n    }\\n\\n    function setSubscriptionId(uint64 subscriptionId_) external onlyOwner {\\n        subscriptionId = subscriptionId_;\\n    }\\n\\n    function setGasLimit(uint32 gasLimit_) external onlyOwner {\\n        gasLimit = gasLimit_;\\n    }\\n\\n    function setDonID(bytes32 donId_) external onlyOwner {\\n        donId = donId_;\\n    }\\n\\n    function setDonHostedSecretsVersion(uint64 donHostedSecretsVersion_) external onlyOwner {\\n        donHostedSecretsVersion = donHostedSecretsVersion_;\\n    }\\n\\n    function sendRequest(string memory userPrompt) external payable returns (bytes32) {\\n        require(msg.value == 2e15, \\\"Request requires 0.002 ether\\\");\\n        require(donHostedSecretsVersion > 0, \\\"Secrets not uploaded\\\");\\n\\n        lastUserPrompt = userPrompt;\\n        lastRequestId = \\\"\\\";\\n        lastResponse = \\\"\\\";\\n        lastError = \\\"\\\";\\n\\n        FunctionsRequest.Request memory req;\\n\\n        req.initializeRequestForInlineJavaScript(javascript);\\n\\n        string[] memory args = new string[](1);\\n        args[0] = userPrompt;\\n\\n        req.setArgs(args);\\n        req.addDONHostedSecrets(0, donHostedSecretsVersion);\\n\\n        lastRequestId = _sendRequest(req.encodeCBOR(), subscriptionId, gasLimit, donId);\\n\\n        emit Request(lastRequestId, userPrompt);\\n        return lastRequestId;\\n    }\\n\\n    function fulfillRequest(bytes32 requestId, bytes memory response, bytes memory err) internal override {\\n        if (lastRequestId != requestId) {\\n            revert UnexpectedRequestID(requestId);\\n        }\\n        lastResponse = string(response);\\n        lastError = string(err);\\n        emit Response(requestId, lastResponse, lastError);\\n    }\\n\\n    function withdraw(address receiver) external onlyOwner {\\n        (bool success,) = payable(receiver).call{value: address(this).balance}(\\\"\\\");\\n        require(success, \\\"Withdraw failed\\\");\\n    }\\n}\\n\",\"keccak256\":\"0xb8e621cc2bac2059638d428714bd60330b9485980dcabf28f8cecb2c9f739612\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a06040523480156200001157600080fd5b506040516200204c3803806200204c833981016040819052620000349162000217565b6001600160a01b0385166080523380600081620000985760405162461bcd60e51b815260206004820152601860248201527f43616e6e6f7420736574206f776e657220746f207a65726f000000000000000060448201526064015b60405180910390fd5b600080546001600160a01b0319166001600160a01b0384811691909117909155811615620000cb57620000cb8162000124565b5060029150620000de90508582620003cb565b506007805463ffffffff90931668010000000000000000026001600160601b03199093166001600160401b03909416939093179190911790915560085550620004979050565b336001600160a01b038216036200017e5760405162461bcd60e51b815260206004820152601760248201527f43616e6e6f74207472616e7366657220746f2073656c6600000000000000000060448201526064016200008f565b600180546001600160a01b0319166001600160a01b0383811691821790925560008054604051929316917fed8889f560326eb138920d842192f0eb3dd22b4f139c87a2c57538e05bae12789190a350565b634e487b7160e01b600052604160045260246000fd5b80516001600160401b0381168114620001fd57600080fd5b919050565b805163ffffffff81168114620001fd57600080fd5b600080600080600060a086880312156200023057600080fd5b85516001600160a01b03811681146200024857600080fd5b602087810151919650906001600160401b03808211156200026857600080fd5b818901915089601f8301126200027d57600080fd5b815181811115620002925762000292620001cf565b604051601f8201601f19908116603f01168101908382118183101715620002bd57620002bd620001cf565b816040528281528c86848701011115620002d657600080fd5b600093505b82841015620002fa5784840186015181850187015292850192620002db565b60008684830101528099505050505050506200031960408701620001e5565b9250620003296060870162000202565b9150608086015190509295509295909350565b600181811c908216806200035157607f821691505b6020821081036200037257634e487b7160e01b600052602260045260246000fd5b50919050565b601f821115620003c657600081815260208120601f850160051c81016020861015620003a15750805b601f850160051c820191505b81811015620003c257828155600101620003ad565b5050505b505050565b81516001600160401b03811115620003e757620003e7620001cf565b620003ff81620003f884546200033c565b8462000378565b602080601f8311600181146200043757600084156200041e5750858301515b600019600386901b1c1916600185901b178555620003c2565b600085815260208120601f198616915b82811015620004685788860151825594840194600190910190840162000447565b5085821015620004875787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b608051611b92620004ba600039600081816103b20152610e630152611b926000f3fe60806040526004361061011f5760003560e01c80638dbe7b9d116100a0578063ea7b4f7711610064578063ea7b4f77146102f8578063f2fde38b14610318578063f68016b714610338578063fc2a88c314610371578063fdb742d91461038757600080fd5b80638dbe7b9d1461026c5780639f2f83c014610290578063b2adc1d9146102a5578063cd6b5fef146102b8578063cfeaa3ec146102d857600080fd5b806362747e42116100e757806362747e42146101e557806363e47df8146101fa5780636806c8621461020f57806379ba50971461022f5780638da5cb5b1461024457600080fd5b806309c1ba2e146101245780630ca761751461016157806329f0de3f1461018357806351cff8d9146101a557806352d84c62146101c5575b600080fd5b34801561013057600080fd5b50600754610144906001600160401b031681565b6040516001600160401b0390911681526020015b60405180910390f35b34801561016d57600080fd5b5061018161017c3660046115b8565b6103a7565b005b34801561018f57600080fd5b5061019861042b565b604051610158919061166a565b3480156101b157600080fd5b506101816101c036600461167d565b6104b9565b3480156101d157600080fd5b506101816101e03660046116a6565b61055f565b3480156101f157600080fd5b50610198610592565b34801561020657600080fd5b5061019861059f565b34801561021b57600080fd5b5061018161022a3660046116cc565b6105ac565b34801561023b57600080fd5b506101816105fb565b34801561025057600080fd5b506000546040516001600160a01b039091168152602001610158565b34801561027857600080fd5b5061028260085481565b604051908152602001610158565b34801561029c57600080fd5b506101986106a5565b6102826102b33660046116cc565b6106b2565b3480156102c457600080fd5b50600954610144906001600160401b031681565b3480156102e457600080fd5b506101816102f336600461171c565b61096d565b34801561030457600080fd5b50610181610313366004611735565b61097a565b34801561032457600080fd5b5061018161033336600461167d565b6109a5565b34801561034457600080fd5b5060075461035c90600160401b900463ffffffff1681565b60405163ffffffff9091168152602001610158565b34801561037d57600080fd5b5061028260035481565b34801561039357600080fd5b506101816103a2366004611735565b6109b9565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146103f05760405163c6829f8360e01b815260040160405180910390fd5b6103fb8383836109e4565b60405183907f85e1543bf2f84fe80c6badbce3648c8539ad1df4d2b3d822938ca0538be727e690600090a2505050565b600580546104389061175e565b80601f01602080910402602001604051908101604052809291908181526020018280546104649061175e565b80156104b15780601f10610486576101008083540402835291602001916104b1565b820191906000526020600020905b81548152906001019060200180831161049457829003601f168201915b505050505081565b6104c1610a64565b6000816001600160a01b03164760405160006040518083038185875af1925050503d806000811461050e576040519150601f19603f3d011682016040523d82523d6000602084013e610513565b606091505b505090508061055b5760405162461bcd60e51b815260206004820152600f60248201526e15da5d1a191c985dc819985a5b1959608a1b60448201526064015b60405180910390fd5b5050565b610567610a64565b6007805463ffffffff909216600160401b026bffffffff000000000000000019909216919091179055565b600480546104389061175e565b600280546104389061175e565b6105b4610a64565b60026105c082826117e6565b507f19b57dbb939f96aaca7e28083ba30fa22465fd4c84b94a7c7d7b689137be6877816040516105f0919061166a565b60405180910390a150565b6001546001600160a01b0316331461064e5760405162461bcd60e51b815260206004820152601660248201527526bab9ba10313290383937b837b9b2b21037bbb732b960511b6044820152606401610552565b60008054336001600160a01b0319808316821784556001805490911690556040516001600160a01b0390921692909183917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a350565b600680546104389061175e565b60003466071afd498d00001461070a5760405162461bcd60e51b815260206004820152601c60248201527f5265717565737420726571756972657320302e303032206574686572000000006044820152606401610552565b6009546001600160401b03166107595760405162461bcd60e51b815260206004820152601460248201527314d958dc995d1cc81b9bdd081d5c1b1bd859195960621b6044820152606401610552565b600661076583826117e6565b5060006003819055604080516020810190915290815260049061078890826117e6565b506040805160208101909152600081526005906107a590826117e6565b506107e76040805160e0810190915280600081526020016000815260200160008152602001606081526020016060815260200160608152602001606081525090565b610884600280546107f79061175e565b80601f01602080910402602001604051908101604052809291908181526020018280546108239061175e565b80156108705780601f1061084557610100808354040283529160200191610870565b820191906000526020600020905b81548152906001019060200180831161085357829003601f168201915b505050505082610ab990919063ffffffff16565b604080516001808252818301909252600091816020015b606081526020019060019003908161089b57905050905083816000815181106108c6576108c66118a5565b60209081029190910101526108db8282610ac6565b6009546108f59083906000906001600160401b0316610af0565b61092561090183610b86565b6007546008546001600160401b03821691600160401b900463ffffffff1690610e5e565b60038190556040517f58c4931f429cb18fea0238d66bdcec44991828642becdaed95b821ac2e59191d9061095a90879061166a565b60405180910390a2505060035492915050565b610975610a64565b600855565b610982610a64565b6007805467ffffffffffffffff19166001600160401b0392909216919091179055565b6109ad610a64565b6109b681610f30565b50565b6109c1610a64565b6009805467ffffffffffffffff19166001600160401b0392909216919091179055565b8260035414610a095760405163d068bf5b60e01b815260048101849052602401610552565b6004610a1583826117e6565b506005610a2282826117e6565b50827f54e825fb4d54663279ee30ed85028f773101cc86a17c9fbeecd0e0d1f771381160046005604051610a57929190611938565b60405180910390a2505050565b6000546001600160a01b03163314610ab75760405162461bcd60e51b815260206004820152601660248201527527b7363c9031b0b63630b1363290313c9037bbb732b960511b6044820152606401610552565b565b61055b8260008084610fd9565b8051600003610ae85760405163fe936cb760e01b815260040160405180910390fd5b60a090910152565b6000610afd610100611057565b9050610b30604051806040016040528060068152602001651cdb1bdd125160d21b8152508261107890919063ffffffff16565b610b3d8160ff8516611096565b6040805180820190915260078152663b32b939b4b7b760c91b6020820152610b66908290611078565b610b708183611096565b6002602085015251516080909301929092525050565b60606000610b95610100611057565b9050610bce6040518060400160405280600c81526020016b31b7b232a637b1b0ba34b7b760a11b8152508261107890919063ffffffff16565b8251610bec906002811115610be557610be5611966565b82906110a2565b6040805180820190915260088152676c616e677561676560c01b6020820152610c16908290611078565b6040830151610c2d908015610be557610be5611966565b604080518082019091526006815265736f7572636560d01b6020820152610c55908290611078565b6060830151610c65908290611078565b60a08301515115610cf9576040805180820190915260048152636172677360e01b6020820152610c96908290611078565b610c9f816110db565b60005b8360a0015151811015610cef57610cdf8460a001518281518110610cc857610cc86118a5565b60200260200101518361107890919063ffffffff16565b610ce881611992565b9050610ca2565b50610cf9816110ff565b60808301515115610dbd57600083602001516002811115610d1c57610d1c611966565b03610d3a5760405163a80d31f760e01b815260040160405180910390fd5b60408051808201909152600f81526e39b2b1b932ba39a637b1b0ba34b7b760891b6020820152610d6b908290611078565b610d8483602001516002811115610be557610be5611966565b6040805180820190915260078152667365637265747360c81b6020820152610dad908290611078565b6080830151610dbd90829061111d565b60c08301515115610e565760408051808201909152600981526862797465734172677360b81b6020820152610df3908290611078565b610dfc816110db565b60005b8360c0015151811015610e4c57610e3c8460c001518281518110610e2557610e256118a5565b60200260200101518361111d90919063ffffffff16565b610e4581611992565b9050610dff565b50610e56816110ff565b515192915050565b6000807f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663461d27628688600188886040518663ffffffff1660e01b8152600401610eb69594939291906119ab565b6020604051808303816000875af1158015610ed5573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ef991906119f4565b60405190915081907f1131472297a800fee664d1d89cfa8f7676ff07189ecc53f80bbb5f4969099db890600090a295945050505050565b336001600160a01b03821603610f885760405162461bcd60e51b815260206004820152601760248201527f43616e6e6f74207472616e7366657220746f2073656c660000000000000000006044820152606401610552565b600180546001600160a01b0319166001600160a01b0383811691821790925560008054604051929316917fed8889f560326eb138920d842192f0eb3dd22b4f139c87a2c57538e05bae12789190a350565b8051600003610ffb576040516322ce3edd60e01b815260040160405180910390fd5b8383600281111561100e5761100e611966565b9081600281111561102157611021611966565b9052506040840182801561103757611037611966565b9081801561104757611047611966565b9052506060909301929092525050565b61105f6114d8565b805161106b908361112a565b5060006020820152919050565b61108582600383516111a4565b815161109190826112c3565b505050565b61055b826000836111a4565b81516110af9060c26112eb565b5061055b82826040516020016110c791815260200190565b60405160208183030381529060405261111d565b6110e6816004611354565b6001816020018181516110f99190611a0d565b90525050565b61110a816007611354565b6001816020018181516110f99190611a20565b61108582600283516111a4565b60408051808201909152606081526000602082015261114a602083611a33565b156111725761115a602083611a33565b611165906020611a20565b61116f9083611a0d565b91505b60208084018390526040518085526000815290818401018181101561119657600080fd5b604052508290505b92915050565b6017816001600160401b0316116111d05782516111ca9060e0600585901b1683176112eb565b50505050565b60ff816001600160401b0316116112105782516111f8906018611fe0600586901b16176112eb565b5082516111ca906001600160401b038316600161136b565b61ffff816001600160401b031611611251578251611239906019611fe0600586901b16176112eb565b5082516111ca906001600160401b038316600261136b565b63ffffffff816001600160401b03161161129457825161127c90601a611fe0600586901b16176112eb565b5082516111ca906001600160401b038316600461136b565b82516112ab90601b611fe0600586901b16176112eb565b5082516111ca906001600160401b038316600861136b565b6040805180820190915260608152600060208201526112e4838384516113f0565b9392505050565b6040805180820190915260608152600060208201528251516000611310826001611a0d565b905084602001518210611331576113318561132c836002611a55565b6114c1565b845160208382010185815350805182111561134a578181525b5093949350505050565b815161109190601f611fe0600585901b16176112eb565b604080518082019091526060815260006020820152835151600061138f8285611a0d565b905085602001518111156113ac576113ac8661132c836002611a55565b600060016113bc86610100611b50565b6113c69190611a20565b905086518281018783198251161781525080518311156113e4578281525b50959695505050505050565b604080518082019091526060815260006020820152825182111561141357600080fd5b83515160006114228483611a0d565b9050856020015181111561143f5761143f8661132c836002611a55565b855180518382016020019160009180851115611459578482525b505050602086015b602086106114995780518252611478602083611a0d565b9150611485602082611a0d565b9050611492602087611a20565b9550611461565b51815160001960208890036101000a0190811690199190911617905250849150509392505050565b81516114cd838361112a565b506111ca83826112c3565b6040518060400160405280611500604051806040016040528060608152602001600081525090565b8152602001600081525090565b634e487b7160e01b600052604160045260246000fd5b60006001600160401b038084111561153d5761153d61150d565b604051601f8501601f19908116603f011681019082821181831017156115655761156561150d565b8160405280935085815286868601111561157e57600080fd5b858560208301376000602087830101525050509392505050565b600082601f8301126115a957600080fd5b6112e483833560208501611523565b6000806000606084860312156115cd57600080fd5b8335925060208401356001600160401b03808211156115eb57600080fd5b6115f787838801611598565b9350604086013591508082111561160d57600080fd5b5061161a86828701611598565b9150509250925092565b6000815180845260005b8181101561164a5760208185018101518683018201520161162e565b506000602082860101526020601f19601f83011685010191505092915050565b6020815260006112e46020830184611624565b60006020828403121561168f57600080fd5b81356001600160a01b03811681146112e457600080fd5b6000602082840312156116b857600080fd5b813563ffffffff811681146112e457600080fd5b6000602082840312156116de57600080fd5b81356001600160401b038111156116f457600080fd5b8201601f8101841361170557600080fd5b61171484823560208401611523565b949350505050565b60006020828403121561172e57600080fd5b5035919050565b60006020828403121561174757600080fd5b81356001600160401b03811681146112e457600080fd5b600181811c9082168061177257607f821691505b60208210810361179257634e487b7160e01b600052602260045260246000fd5b50919050565b601f82111561109157600081815260208120601f850160051c810160208610156117bf5750805b601f850160051c820191505b818110156117de578281556001016117cb565b505050505050565b81516001600160401b038111156117ff576117ff61150d565b6118138161180d845461175e565b84611798565b602080601f83116001811461184857600084156118305750858301515b600019600386901b1c1916600185901b1785556117de565b600085815260208120601f198616915b8281101561187757888601518255948401946001909101908401611858565b50858210156118955787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b634e487b7160e01b600052603260045260246000fd5b600081546118c88161175e565b8085526020600183811680156118e557600181146118ff5761192d565b60ff1985168884015283151560051b88018301955061192d565b866000528260002060005b858110156119255781548a820186015290830190840161190a565b890184019650505b505050505092915050565b60408152600061194b60408301856118bb565b828103602084015261195d81856118bb565b95945050505050565b634e487b7160e01b600052602160045260246000fd5b634e487b7160e01b600052601160045260246000fd5b6000600182016119a4576119a461197c565b5060010190565b6001600160401b038616815260a0602082015260006119cd60a0830187611624565b61ffff9590951660408301525063ffffffff92909216606083015260809091015292915050565b600060208284031215611a0657600080fd5b5051919050565b8082018082111561119e5761119e61197c565b8181038181111561119e5761119e61197c565b600082611a5057634e487b7160e01b600052601260045260246000fd5b500690565b808202811582820484141761119e5761119e61197c565b600181815b80851115611aa7578160001904821115611a8d57611a8d61197c565b80851615611a9a57918102915b93841c9390800290611a71565b509250929050565b600082611abe5750600161119e565b81611acb5750600061119e565b8160018114611ae15760028114611aeb57611b07565b600191505061119e565b60ff841115611afc57611afc61197c565b50506001821b61119e565b5060208310610133831016604e8410600b8410161715611b2a575081810a61119e565b611b348383611a6c565b8060001904821115611b4857611b4861197c565b029392505050565b60006112e48383611aaf56fea264697066735822122089ad2634e1e0906a87a1e8c80bb01777ea3d636100b2bf6f2dabcaf1164d54fa64736f6c63430008130033",
+  "deployedBytecode": "0x60806040526004361061011f5760003560e01c80638dbe7b9d116100a0578063ea7b4f7711610064578063ea7b4f77146102f8578063f2fde38b14610318578063f68016b714610338578063fc2a88c314610371578063fdb742d91461038757600080fd5b80638dbe7b9d1461026c5780639f2f83c014610290578063b2adc1d9146102a5578063cd6b5fef146102b8578063cfeaa3ec146102d857600080fd5b806362747e42116100e757806362747e42146101e557806363e47df8146101fa5780636806c8621461020f57806379ba50971461022f5780638da5cb5b1461024457600080fd5b806309c1ba2e146101245780630ca761751461016157806329f0de3f1461018357806351cff8d9146101a557806352d84c62146101c5575b600080fd5b34801561013057600080fd5b50600754610144906001600160401b031681565b6040516001600160401b0390911681526020015b60405180910390f35b34801561016d57600080fd5b5061018161017c3660046115b8565b6103a7565b005b34801561018f57600080fd5b5061019861042b565b604051610158919061166a565b3480156101b157600080fd5b506101816101c036600461167d565b6104b9565b3480156101d157600080fd5b506101816101e03660046116a6565b61055f565b3480156101f157600080fd5b50610198610592565b34801561020657600080fd5b5061019861059f565b34801561021b57600080fd5b5061018161022a3660046116cc565b6105ac565b34801561023b57600080fd5b506101816105fb565b34801561025057600080fd5b506000546040516001600160a01b039091168152602001610158565b34801561027857600080fd5b5061028260085481565b604051908152602001610158565b34801561029c57600080fd5b506101986106a5565b6102826102b33660046116cc565b6106b2565b3480156102c457600080fd5b50600954610144906001600160401b031681565b3480156102e457600080fd5b506101816102f336600461171c565b61096d565b34801561030457600080fd5b50610181610313366004611735565b61097a565b34801561032457600080fd5b5061018161033336600461167d565b6109a5565b34801561034457600080fd5b5060075461035c90600160401b900463ffffffff1681565b60405163ffffffff9091168152602001610158565b34801561037d57600080fd5b5061028260035481565b34801561039357600080fd5b506101816103a2366004611735565b6109b9565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146103f05760405163c6829f8360e01b815260040160405180910390fd5b6103fb8383836109e4565b60405183907f85e1543bf2f84fe80c6badbce3648c8539ad1df4d2b3d822938ca0538be727e690600090a2505050565b600580546104389061175e565b80601f01602080910402602001604051908101604052809291908181526020018280546104649061175e565b80156104b15780601f10610486576101008083540402835291602001916104b1565b820191906000526020600020905b81548152906001019060200180831161049457829003601f168201915b505050505081565b6104c1610a64565b6000816001600160a01b03164760405160006040518083038185875af1925050503d806000811461050e576040519150601f19603f3d011682016040523d82523d6000602084013e610513565b606091505b505090508061055b5760405162461bcd60e51b815260206004820152600f60248201526e15da5d1a191c985dc819985a5b1959608a1b60448201526064015b60405180910390fd5b5050565b610567610a64565b6007805463ffffffff909216600160401b026bffffffff000000000000000019909216919091179055565b600480546104389061175e565b600280546104389061175e565b6105b4610a64565b60026105c082826117e6565b507f19b57dbb939f96aaca7e28083ba30fa22465fd4c84b94a7c7d7b689137be6877816040516105f0919061166a565b60405180910390a150565b6001546001600160a01b0316331461064e5760405162461bcd60e51b815260206004820152601660248201527526bab9ba10313290383937b837b9b2b21037bbb732b960511b6044820152606401610552565b60008054336001600160a01b0319808316821784556001805490911690556040516001600160a01b0390921692909183917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a350565b600680546104389061175e565b60003466071afd498d00001461070a5760405162461bcd60e51b815260206004820152601c60248201527f5265717565737420726571756972657320302e303032206574686572000000006044820152606401610552565b6009546001600160401b03166107595760405162461bcd60e51b815260206004820152601460248201527314d958dc995d1cc81b9bdd081d5c1b1bd859195960621b6044820152606401610552565b600661076583826117e6565b5060006003819055604080516020810190915290815260049061078890826117e6565b506040805160208101909152600081526005906107a590826117e6565b506107e76040805160e0810190915280600081526020016000815260200160008152602001606081526020016060815260200160608152602001606081525090565b610884600280546107f79061175e565b80601f01602080910402602001604051908101604052809291908181526020018280546108239061175e565b80156108705780601f1061084557610100808354040283529160200191610870565b820191906000526020600020905b81548152906001019060200180831161085357829003601f168201915b505050505082610ab990919063ffffffff16565b604080516001808252818301909252600091816020015b606081526020019060019003908161089b57905050905083816000815181106108c6576108c66118a5565b60209081029190910101526108db8282610ac6565b6009546108f59083906000906001600160401b0316610af0565b61092561090183610b86565b6007546008546001600160401b03821691600160401b900463ffffffff1690610e5e565b60038190556040517f58c4931f429cb18fea0238d66bdcec44991828642becdaed95b821ac2e59191d9061095a90879061166a565b60405180910390a2505060035492915050565b610975610a64565b600855565b610982610a64565b6007805467ffffffffffffffff19166001600160401b0392909216919091179055565b6109ad610a64565b6109b681610f30565b50565b6109c1610a64565b6009805467ffffffffffffffff19166001600160401b0392909216919091179055565b8260035414610a095760405163d068bf5b60e01b815260048101849052602401610552565b6004610a1583826117e6565b506005610a2282826117e6565b50827f54e825fb4d54663279ee30ed85028f773101cc86a17c9fbeecd0e0d1f771381160046005604051610a57929190611938565b60405180910390a2505050565b6000546001600160a01b03163314610ab75760405162461bcd60e51b815260206004820152601660248201527527b7363c9031b0b63630b1363290313c9037bbb732b960511b6044820152606401610552565b565b61055b8260008084610fd9565b8051600003610ae85760405163fe936cb760e01b815260040160405180910390fd5b60a090910152565b6000610afd610100611057565b9050610b30604051806040016040528060068152602001651cdb1bdd125160d21b8152508261107890919063ffffffff16565b610b3d8160ff8516611096565b6040805180820190915260078152663b32b939b4b7b760c91b6020820152610b66908290611078565b610b708183611096565b6002602085015251516080909301929092525050565b60606000610b95610100611057565b9050610bce6040518060400160405280600c81526020016b31b7b232a637b1b0ba34b7b760a11b8152508261107890919063ffffffff16565b8251610bec906002811115610be557610be5611966565b82906110a2565b6040805180820190915260088152676c616e677561676560c01b6020820152610c16908290611078565b6040830151610c2d908015610be557610be5611966565b604080518082019091526006815265736f7572636560d01b6020820152610c55908290611078565b6060830151610c65908290611078565b60a08301515115610cf9576040805180820190915260048152636172677360e01b6020820152610c96908290611078565b610c9f816110db565b60005b8360a0015151811015610cef57610cdf8460a001518281518110610cc857610cc86118a5565b60200260200101518361107890919063ffffffff16565b610ce881611992565b9050610ca2565b50610cf9816110ff565b60808301515115610dbd57600083602001516002811115610d1c57610d1c611966565b03610d3a5760405163a80d31f760e01b815260040160405180910390fd5b60408051808201909152600f81526e39b2b1b932ba39a637b1b0ba34b7b760891b6020820152610d6b908290611078565b610d8483602001516002811115610be557610be5611966565b6040805180820190915260078152667365637265747360c81b6020820152610dad908290611078565b6080830151610dbd90829061111d565b60c08301515115610e565760408051808201909152600981526862797465734172677360b81b6020820152610df3908290611078565b610dfc816110db565b60005b8360c0015151811015610e4c57610e3c8460c001518281518110610e2557610e256118a5565b60200260200101518361111d90919063ffffffff16565b610e4581611992565b9050610dff565b50610e56816110ff565b515192915050565b6000807f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663461d27628688600188886040518663ffffffff1660e01b8152600401610eb69594939291906119ab565b6020604051808303816000875af1158015610ed5573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ef991906119f4565b60405190915081907f1131472297a800fee664d1d89cfa8f7676ff07189ecc53f80bbb5f4969099db890600090a295945050505050565b336001600160a01b03821603610f885760405162461bcd60e51b815260206004820152601760248201527f43616e6e6f74207472616e7366657220746f2073656c660000000000000000006044820152606401610552565b600180546001600160a01b0319166001600160a01b0383811691821790925560008054604051929316917fed8889f560326eb138920d842192f0eb3dd22b4f139c87a2c57538e05bae12789190a350565b8051600003610ffb576040516322ce3edd60e01b815260040160405180910390fd5b8383600281111561100e5761100e611966565b9081600281111561102157611021611966565b9052506040840182801561103757611037611966565b9081801561104757611047611966565b9052506060909301929092525050565b61105f6114d8565b805161106b908361112a565b5060006020820152919050565b61108582600383516111a4565b815161109190826112c3565b505050565b61055b826000836111a4565b81516110af9060c26112eb565b5061055b82826040516020016110c791815260200190565b60405160208183030381529060405261111d565b6110e6816004611354565b6001816020018181516110f99190611a0d565b90525050565b61110a816007611354565b6001816020018181516110f99190611a20565b61108582600283516111a4565b60408051808201909152606081526000602082015261114a602083611a33565b156111725761115a602083611a33565b611165906020611a20565b61116f9083611a0d565b91505b60208084018390526040518085526000815290818401018181101561119657600080fd5b604052508290505b92915050565b6017816001600160401b0316116111d05782516111ca9060e0600585901b1683176112eb565b50505050565b60ff816001600160401b0316116112105782516111f8906018611fe0600586901b16176112eb565b5082516111ca906001600160401b038316600161136b565b61ffff816001600160401b031611611251578251611239906019611fe0600586901b16176112eb565b5082516111ca906001600160401b038316600261136b565b63ffffffff816001600160401b03161161129457825161127c90601a611fe0600586901b16176112eb565b5082516111ca906001600160401b038316600461136b565b82516112ab90601b611fe0600586901b16176112eb565b5082516111ca906001600160401b038316600861136b565b6040805180820190915260608152600060208201526112e4838384516113f0565b9392505050565b6040805180820190915260608152600060208201528251516000611310826001611a0d565b905084602001518210611331576113318561132c836002611a55565b6114c1565b845160208382010185815350805182111561134a578181525b5093949350505050565b815161109190601f611fe0600585901b16176112eb565b604080518082019091526060815260006020820152835151600061138f8285611a0d565b905085602001518111156113ac576113ac8661132c836002611a55565b600060016113bc86610100611b50565b6113c69190611a20565b905086518281018783198251161781525080518311156113e4578281525b50959695505050505050565b604080518082019091526060815260006020820152825182111561141357600080fd5b83515160006114228483611a0d565b9050856020015181111561143f5761143f8661132c836002611a55565b855180518382016020019160009180851115611459578482525b505050602086015b602086106114995780518252611478602083611a0d565b9150611485602082611a0d565b9050611492602087611a20565b9550611461565b51815160001960208890036101000a0190811690199190911617905250849150509392505050565b81516114cd838361112a565b506111ca83826112c3565b6040518060400160405280611500604051806040016040528060608152602001600081525090565b8152602001600081525090565b634e487b7160e01b600052604160045260246000fd5b60006001600160401b038084111561153d5761153d61150d565b604051601f8501601f19908116603f011681019082821181831017156115655761156561150d565b8160405280935085815286868601111561157e57600080fd5b858560208301376000602087830101525050509392505050565b600082601f8301126115a957600080fd5b6112e483833560208501611523565b6000806000606084860312156115cd57600080fd5b8335925060208401356001600160401b03808211156115eb57600080fd5b6115f787838801611598565b9350604086013591508082111561160d57600080fd5b5061161a86828701611598565b9150509250925092565b6000815180845260005b8181101561164a5760208185018101518683018201520161162e565b506000602082860101526020601f19601f83011685010191505092915050565b6020815260006112e46020830184611624565b60006020828403121561168f57600080fd5b81356001600160a01b03811681146112e457600080fd5b6000602082840312156116b857600080fd5b813563ffffffff811681146112e457600080fd5b6000602082840312156116de57600080fd5b81356001600160401b038111156116f457600080fd5b8201601f8101841361170557600080fd5b61171484823560208401611523565b949350505050565b60006020828403121561172e57600080fd5b5035919050565b60006020828403121561174757600080fd5b81356001600160401b03811681146112e457600080fd5b600181811c9082168061177257607f821691505b60208210810361179257634e487b7160e01b600052602260045260246000fd5b50919050565b601f82111561109157600081815260208120601f850160051c810160208610156117bf5750805b601f850160051c820191505b818110156117de578281556001016117cb565b505050505050565b81516001600160401b038111156117ff576117ff61150d565b6118138161180d845461175e565b84611798565b602080601f83116001811461184857600084156118305750858301515b600019600386901b1c1916600185901b1785556117de565b600085815260208120601f198616915b8281101561187757888601518255948401946001909101908401611858565b50858210156118955787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b634e487b7160e01b600052603260045260246000fd5b600081546118c88161175e565b8085526020600183811680156118e557600181146118ff5761192d565b60ff1985168884015283151560051b88018301955061192d565b866000528260002060005b858110156119255781548a820186015290830190840161190a565b890184019650505b505050505092915050565b60408152600061194b60408301856118bb565b828103602084015261195d81856118bb565b95945050505050565b634e487b7160e01b600052602160045260246000fd5b634e487b7160e01b600052601160045260246000fd5b6000600182016119a4576119a461197c565b5060010190565b6001600160401b038616815260a0602082015260006119cd60a0830187611624565b61ffff9590951660408301525063ffffffff92909216606083015260809091015292915050565b600060208284031215611a0657600080fd5b5051919050565b8082018082111561119e5761119e61197c565b8181038181111561119e5761119e61197c565b600082611a5057634e487b7160e01b600052601260045260246000fd5b500690565b808202811582820484141761119e5761119e61197c565b600181815b80851115611aa7578160001904821115611a8d57611a8d61197c565b80851615611a9a57918102915b93841c9390800290611a71565b509250929050565b600082611abe5750600161119e565b81611acb5750600061119e565b8160018114611ae15760028114611aeb57611b07565b600191505061119e565b60ff841115611afc57611afc61197c565b50506001821b61119e565b5060208310610133831016604e8410600b8410161715611b2a575081810a61119e565b611b348383611a6c565b8060001904821115611b4857611b4861197c565b029392505050565b60006112e48383611aaf56fea264697066735822122089ad2634e1e0906a87a1e8c80bb01777ea3d636100b2bf6f2dabcaf1164d54fa64736f6c63430008130033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "handleOracleFulfillment(bytes32,bytes,bytes)": {
+        "details": "Either response or error parameter will be set, but never both.",
+        "params": {
+          "err": "Aggregated error either from the request's source code or from the execution pipeline.",
+          "requestId": "The requestId returned by FunctionsClient.sendRequest().",
+          "response": "Aggregated response from the request's source code."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "acceptOwnership()": {
+        "notice": "Allows an ownership transfer to be completed by the recipient."
+      },
+      "handleOracleFulfillment(bytes32,bytes,bytes)": {
+        "notice": "Chainlink Functions response handler called by the Functions Router during fullilment from the designated transmitter node in an OCR round."
+      },
+      "owner()": {
+        "notice": "Get the current owner"
+      },
+      "transferOwnership(address)": {
+        "notice": "Allows an owner to begin transferring ownership to a new address."
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 816,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "s_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 818,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "s_pendingOwner",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 2284,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "javascript",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 2286,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "lastRequestId",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_bytes32"
+      },
+      {
+        "astId": 2288,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "lastResponse",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 2290,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "lastError",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 2292,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "lastUserPrompt",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 2294,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "subscriptionId",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 2296,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "gasLimit",
+        "offset": 8,
+        "slot": "7",
+        "type": "t_uint32"
+      },
+      {
+        "astId": 2298,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "donId",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_bytes32"
+      },
+      {
+        "astId": 2300,
+        "contract": "contracts/OnchainAI.sol:OnChainAI",
+        "label": "donHostedSecretsVersion",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_uint64"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint32": {
+        "encoding": "inplace",
+        "label": "uint32",
+        "numberOfBytes": "4"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      }
+    }
+  }
+}

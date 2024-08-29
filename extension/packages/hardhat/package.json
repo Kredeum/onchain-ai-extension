@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@chainlink/contracts": "^1.2.0",
+    "@chainlink/env-enc": "^1.0.5",
+    "@chainlink/functions-toolkit": "^0.3.1",
+    "@types/fs-extra": "^11.0.4",
+    "ethers-v5": "npm:ethers@^5.7.2",
+    "fs-extra": "^11.2.0"
+  }
+}

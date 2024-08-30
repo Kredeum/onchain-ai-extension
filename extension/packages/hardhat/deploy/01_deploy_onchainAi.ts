@@ -11,7 +11,7 @@ const deployOnChainAI: DeployFunction = async function (hre: HardhatRuntimeEnvir
 
   const donIdHex = hre.ethers.encodeBytes32String(donId);
   const gasLimit = 300000;
-  const javascript = readJavascript("OnChainAI.js");
+  const javascript = readJavascript("onChainAI.js");
 
   const deployResult = await deploy("OnChainAI", {
     from: deployer,
@@ -23,15 +23,17 @@ const deployOnChainAI: DeployFunction = async function (hre: HardhatRuntimeEnvir
   // if (deployResult.newlyDeployed)
   {
     writeConfig(chainId, "onChainAI", deployResult.address);
+    // add OnChainAI smartcontract as Consumer on Chainlink Router
+    if (chainId != "31337") {
+      const routerAbi = ["function addConsumer(uint64,address) external"];
+      const [signer] = await hre.ethers.getSigners();
+      const routerContract = await hre.ethers.getContractAt(routerAbi, router, signer);
 
-    const routerAbi = ["function addConsumer(uint64,address) external"];
-    const [signer] = await hre.ethers.getSigners();
-    const routerContract = await hre.ethers.getContractAt(routerAbi, router, signer);
-
-    const tx = await routerContract.addConsumer(subscriptionId, deployResult.address);
-    console.log("Add Chainlink consumer Request", deployResult.address, `${explorer}/tx/${tx.hash}`);
-    const res = await tx.wait();
-    console.log("Add Chainlink consumer Result", res?.status || "no status");
+      const tx = await routerContract.addConsumer(subscriptionId, deployResult.address);
+      console.log("Add Chainlink consumer Request", deployResult.address, `${explorer}/tx/${tx.hash}`);
+      const res = await tx.wait();
+      console.log("Add Chainlink consumer Result", res?.status || "no status");
+    }
   }
 };
 

@@ -1,6 +1,7 @@
 # OnChainAI
 
-## Onchain `OpenAI` with `Chainlink` Functions
+## Onchain `OpenAI` via `Chainlink Functions`
+*OnChainAI purpose is to propose a fully decentralized way to interact between smartcontracts and AI*
 
 ## Description
 
@@ -11,7 +12,7 @@
 Each `OpenAI` request launched by `OnChainAI` is send by multiple `Chainlink` servers that have to reach consensus to return a unique answer. `Chainlink` answer can be retreive only after few blocks, and make took more than one minute, it depends on the network.
 
 
-- `OnChainAI` is not free (on mainnet) as `Chainlink` requires some `LINK` tokens and `OpenAPI` requires some `$`.
+- `OnChainAI` is not free (on mainnet) as `Chainlink` requires some `LINK` tokens and `OpenAI` requires some `$`.
 Default model will be a fixed price of `0,0002 eth` per request.
 BUT this will be changed in the future to a more dynamic pricing model.
 
@@ -24,7 +25,7 @@ BUT this will be changed in the future to a more dynamic pricing model.
 
 Install via this command:
 ```sh
-$ npx create-eth@latest -e kredeum/onchain-ai
+$ npx create-eth@latest -e kredeum/onchain-ai-extension
 ```
 
 Then run the following commands to initialize the new repo,
@@ -44,20 +45,120 @@ $ yarn deploy
 $ yarn start
 ```
 
-In all these commands use `--network <NETWORK>` to specify the network you want to use.
+In all these commands use `hardhat` option `--network <NETWORK>` to specify the network you want to use.
+
+Note that `OnChainAI` will not work on `hardhat` network (no `Chainlink` there...), so rather use a tesnet like `baseSepolia` or `optimismSepolia` for your tests (avoid `Sepolia` that is slower).
+
+## Usage
+
+You can send your prompt to OnChainAI in different ways:
+1. using `debug` page of `Scaffold-eth-2` (`out of the box`)
+2. using `OnChainAI UI` included in this extension, via the menu link in `Scaffold-eth-2`
+3. using `hardhat ai request` task
+4. via your smartcontracts using `OnChainAI` protocol
+
 
 ## Hardhat tasks
 
-You can run hardhat AI task with `yarn hardhat ai <TASK> --network <NETWORK>``
+You can run hardhat AI task with `yarn hardhat --network <NETWORK> ai <TASK>`
 
-3 tasks available : `request`, `secrets`, `config`
+3 tasks available, 1 for the users: `request`, 2 for the OnChainAI admin : `secrets`, `config`
 
-### request
+```txt
+AVAILABLE TASKS:
 
-### secrets
+  config 	Display [and update] OnChainAI config
+  request	Read last OnChainAI response [and send OnChainAI request]
+  secrets	Upload OnChainAI secrets to Chainlink
 
-### config
+ai: OnChainAI with Chainlink and OpenAI
+```
 
+### request task
+**Main task**, to be used to send your prompt
+
+Ex: `yarn hardhat --network baseSepolia ai request --prompt "13 time 5 equal ?"`
+
+```txt
+Usage: hardhat [GLOBAL OPTIONS] ai request [--prompt <STRING>]
+
+OPTIONS:
+
+  --prompt	OpenAI prompt request for Chainlink
+
+request: Read last OnChainAI response [and send OnChainAI request]
+```
+
+
+### secrets task
+Admin task, to be used to upload your secrets to Chainlink
+
+Ex: `yarn hardhat --network baseSepolia ai secrets --expiration 10`
+
+```txt
+Usage: hardhat [GLOBAL OPTIONS] ai secrets [--expiration <INT>]
+
+OPTIONS:
+
+  --expiration	Expiration time in minutes of uploaded secrets  (default: 60)
+
+secrets: Upload OnChainAI secrets to Chainlink
+```
+
+### config task
+Admin task, to manage OnChainAI configuration
+
+Ex: `yarn hardhat --network baseSepolia ai config --price 0.0002`
+
+```txt
+Usage: hardhat [GLOBAL OPTIONS] ai config [--chainname <STRING>] [--donid <INT>] [--explorer <STRING>] [--router <STRING>] [--rpc <STRING>] [--subid <INT>]
+
+OPTIONS:
+
+  --chainname	Chain name
+  --donid    	Chainlink DON Id
+  --explorer 	Chain explorer url
+  --router   	Chainlink routeur address
+  --rpc      	Base Rpc url
+  --subid    	Chainlink Subscription Id
+
+config: Display [and update] OnChainAI config
+```
+
+Any updated value, will be written to the config file, and store onchain for `donid`and `subid`
+
+Router address must be set **before** deployment of a new version of `OnChainAI` contract.
+
+Config file can be found at [packages/hardhat/chainlink/config.json](chainlink/config.json)
+
+### Shortcut
+You can define a shortcut in your package.json like that :
+```json
+"scripts": {
+  "ai": "hardhat --network baseSepolia ai"
+}
+```
+then call it with `yarn ai <TASK> <OPTIONS>`
+
+## OpenAI
+
+A specific `system prompt` is used for each OpenAI request, you can view it inside the javascript code run by `Chainlink DON` : [packages/hardhat/chainlink/source/onChainAI.js](chainlink/source/onChainAI.js)
+
+
+## Security
+In order to never store your secrets and private keys in plain text on your hard disk, this extension use `Chainlink env-enc` module to encrypt your secrets before storing them.
+
+In order to setup `env-enc`, in hardhat directory first define a password with `yarn env-enc set-pw` then input your secrets with `yarn env-enc set`
+
+If you want to keep original unsecure `dotenv` stuff just comment 2 `env-enc` lines, and uncomment the 2 `dotenv` lines at the begining of `hardhat.config.ts`
+
+Same ENV values are needed for both `dotenv` and `env-enc`:
+- `DEPLOYER_PRIVATE_KEY` : private key of the deployer
+- `ALCHEMY_API_KEY` : alchemy api key
+- `ETHERSCAN_API_KEY` : etherscan api key
+- `OPENAI_API_KEY` : openai api key
+
+OPENAI_API_KEY will be uploaded in a secure way to `Chainlink DON`  (don't use centralized S3 solutions also proposed by `Chainlink`)
 
 ## Limitations
 
@@ -76,3 +177,4 @@ And you can add to your prompt some requirements as: answer with  `one word`, `Y
 - deploy `OnChainAI` on all networks supported by `Chainlink Functions` (curently as of August 2024 : Ethereum, Arbitrum, Base, Optimism, Polygon, Avalanche)
 - deploy with same address on all networks
 - setup an foundry extension too
+- propose a choice between multiple system prompts

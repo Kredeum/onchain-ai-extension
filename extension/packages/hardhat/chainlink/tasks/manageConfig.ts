@@ -2,15 +2,16 @@ import { onChainScope } from "./scope";
 import { readConfig, writeConfig } from "../lib/utils";
 import { OnChainAI } from "../../typechain-types";
 import AbiOnChainAI from "../abis/OnChainAI.json";
+import { types } from "hardhat/config";
 
 onChainScope
   .task("config", "Display [and update] OnChainAI config")
-  .addOptionalParam("donid", "Chainlink DON Id")
-  .addOptionalParam("router", "Chainlink routeur address")
-  .addOptionalParam("rpc", "Base Rpc url")
-  .addOptionalParam("subid", "Chainlink Subscription Id")
-  .addOptionalParam("explorer", "Chain explorer url")
-  .addOptionalParam("chainname", "Chain name")
+  .addOptionalParam("donid", "Chainlink DON Id", undefined, types.int)
+  .addOptionalParam("subid", "Chainlink Subscription Id", undefined, types.int)
+  .addOptionalParam("router", "Chainlink routeur address", undefined, types.string)
+  .addOptionalParam("explorer", "Chain explorer url", undefined, types.string)
+  .addOptionalParam("chainname", "Chain name", undefined, types.string)
+  .addOptionalParam("rpc", "Base Rpc url", undefined, types.string)
   .setAction(async (taskArgs, hre) => {
     const chainId = await hre.getChainId();
     const config = readConfig(chainId);

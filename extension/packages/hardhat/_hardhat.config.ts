@@ -1,6 +1,9 @@
 // Use env-enc from chainlink to encrypt secrets on hard disk
 import { config as decodeConfig } from "@chainlink/env-enc";
 decodeConfig();
+// Unsecure dotenv config
+// import * as dotenv from "dotenv";
+// dotenv.config();
 
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-ethers";

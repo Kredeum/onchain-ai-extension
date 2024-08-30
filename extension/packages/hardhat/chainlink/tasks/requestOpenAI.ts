@@ -2,10 +2,11 @@ import { OnChainAI } from "../../typechain-types";
 import { onChainScope } from "./scope";
 import AbiOnChainAI from "../abis/OnChainAI.json";
 import { readConfig } from "../lib/utils";
+import { types } from "hardhat/config";
 
 onChainScope
   .task("request", "Read last OnChainAI response [and send OnChainAI request]")
-  .addOptionalParam("prompt", "OpenAI prompt request for Chainlink")
+  .addOptionalParam("prompt", "OpenAI prompt request for Chainlink", undefined, types.string)
   .setAction(async (taskArgs, hre) => {
     const chainId = await hre.getChainId();
     const config = readConfig(chainId);

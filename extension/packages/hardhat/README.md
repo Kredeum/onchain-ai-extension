@@ -1,14 +1,14 @@
 # OnChainAI
 
 ## Onchain `OpenAI` via `Chainlink Functions`
-*OnChainAI purpose is to propose a fully decentralized way to interact between smartcontracts and AI*
+*OnChainAI purpose is to propose a fully decentralized way to interact online, between smartcontracts and AI*
 
 ## Description
 
-- `OnChainAI extension` is a Scaffold-eth-2 extension, allowing you to developp Dapps using `OpenAI GPT4`
+- `OnChainAI extension` is a Scaffold-eth-2 extension, allowing you to developp Dapps using `OpenAI GPT`
 - `OnChainAI` protocol is an onchain solution for any smartcontracts to make AI calls.
 
-- `OnChainAI` uses `OpenAI GPT4o-mini` with `Chainlink Functions`.
+- `OnChainAI` uses [`OpenAI GPT4o-mini`](https://openai.com/api/) with [`Chainlink Functions`](https://functions.chain.link/).
 Each `OpenAI` request launched by `OnChainAI` is send by multiple `Chainlink` servers that have to reach consensus to return a unique answer. `Chainlink` answer can be retreive only after few blocks, and make took more than one minute, it depends on the network.
 
 

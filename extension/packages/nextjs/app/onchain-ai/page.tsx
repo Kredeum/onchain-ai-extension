@@ -3,8 +3,8 @@ import type { NextPage } from "next";
 import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 
 export const metadata = getMetadata({
-  title: "On Chain send AI request",
-  description: "Prompt your request and send it on chain using ChainLink",
+  title: "OnChainAI",
+  description: "Interact onchain with OpenAI GPT4o-mini",
 });
 
 const OnChainAI: NextPage = () => {

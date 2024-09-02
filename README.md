@@ -154,7 +154,7 @@ A specific `system prompt` is used for each OpenAI request, you can view it insi
 
 
 ## Security 🛡️
-In order to never store your secrets and private keys in plain text on your hard disk ("hi @PatrickAlphaC"), this extension use `Chainlink env-enc` module to encrypt your secrets before storing them.
+In order to never store your secrets and private keys in plain text on your hard disk (["hi @PatrickAlphaC"](https://www.youtube.com/watch?v=CIbhqRJ4B8I)), this extension use `Chainlink env-enc` module to encrypt your secrets before storing them.
 
 In order to setup `env-enc`, in hardhat directory first define a password with `yarn env-enc set-pw` then input your secrets with `yarn env-enc set`
 

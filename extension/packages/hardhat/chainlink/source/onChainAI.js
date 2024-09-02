@@ -2,7 +2,9 @@ if (!secrets.openaiKey) throw Error("Need OPENAI_KEY environment variable");
 
 const data = {
   model: "gpt-4o-mini",
-  messages: [{ role: "user", content: args[0] }],
+  messages: [
+    { 'role': 'system', 'content': 'Answer in plain text with few words' },
+    { role: "user", content: args[0] }],
 };
 
 const openAiResponse = await Functions.makeHttpRequest({

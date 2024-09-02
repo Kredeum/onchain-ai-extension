@@ -9,6 +9,7 @@ import { TxReceipt } from "~~/app/debug/_components/contract";
 import { Address, Balance } from "~~/components/scaffold-eth";
 import { useDeployedContractInfo, useNetworkColor } from "~~/hooks/scaffold-eth";
 import { useTransactor } from "~~/hooks/scaffold-eth";
+import { useScaffoldWatchContractEvent } from "~~/hooks/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { ContractName } from "~~/utils/scaffold-eth/contract";
 
@@ -21,7 +22,8 @@ export const OnChainAIUI = ({}) => {
   );
   const { targetNetwork } = useTargetNetwork();
   const networkColor = useNetworkColor();
-  const { chain } = useAccount();
+  const { address, chain } = useAccount();
+
   const writeDisabled = !chain || chain?.id !== targetNetwork.id;
 
   ///////////////////////
@@ -53,10 +55,11 @@ export const OnChainAIUI = ({}) => {
 
   ///////////////////////////
   const [refreshVariables, setRefreshVariables] = useState(0);
+  const [waitingResponse, setWaitingResponse] = useState(false);
 
   ///////////////////////////
   const sendRequest = async () => {
-    if (!inputPrompt) return;
+    if (!inputPrompt || !address) return;
 
     setLoading(true);
 
@@ -73,6 +76,7 @@ export const OnChainAIUI = ({}) => {
         await writeTxn(makeWriteWithParams);
 
         resetPrompt();
+        setWaitingResponse(true);
         setRefreshVariables(refreshVariables + 1);
       } catch (e: any) {
         console.error("⚡️ ~ file: PromptInput.tsx:sendRequest ~ error", e);
@@ -81,6 +85,15 @@ export const OnChainAIUI = ({}) => {
 
     setLoading(false);
   };
+
+  ///////////////////////
+  const onLogs = (logs: any) => {
+    console.info("onLogs ~ EventLogs:", logs);
+    setWaitingResponse(false);
+    setRefreshVariables(refreshVariables + 1);
+  };
+
+  useScaffoldWatchContractEvent({ contractName, eventName: "Response", onLogs });
 
   ///////////////////////
 
@@ -104,16 +117,16 @@ export const OnChainAIUI = ({}) => {
     <>
       <div className="w-full px-8 flex items-center justify-center">
         <AIDatas
-          contractName={contractName as ContractName}
           deployedContractData={deployedContractData}
           refreshVariables={refreshVariables}
+          waitingResponse={waitingResponse}
         />
       </div>
       <div className="flex-grow bg-base-300 w-full mt-6 px-8 py-12">
         <div className="w-full flex justify-center items-center">
-          <article className="bg-base-100 border-base-300 border shadow-md shadow-secondary rounded-3xl px-6 lg:px-8 mb-6 space-y-1 py-4 w-min-272 max-w-xl w-full">
-            <header className="mb-5">
-              <p className="font-medium my-0 break-words">Enter your Prompt</p>
+          <article className="bg-base-100 border-base-300 border shadow-md shadow-secondary rounded-3xl px-6 lg:px-8 mb-6 py-4 w-min-272 max-w-xl w-full">
+            <header className="mb-5 text-center">
+              <p className="text-primary font-medium my-0 break-words">Enter your Prompt</p>
               <p className="text-xs font-light my-0 mb-2 break-words">
                 Keep it simple to achieve ChainLink consensus (transaction cost: {formatEther(BigInt(txValue))} ETH)
               </p>
@@ -125,21 +138,20 @@ export const OnChainAIUI = ({}) => {
               disabled={isPending}
               resetPrompt={resetPrompt}
             />
-            <p className="text-sm font-light text-center my-0 break-words"></p>
-            <div className="flex justify-between gap-2">
+            <div className="flex justify-between gap-2 mt-3">
               <div className="flex-grow basis-0">
                 {displayedTxResult ? <TxReceipt txResult={displayedTxResult} /> : null}
               </div>
               <div
                 className={`flex ${
-                  isPending &&
-                  "tooltip before:content-[attr(data-tip)] before:right-[-10px] before:left-auto before:transform-none"
+                  (writeDisabled || !address) &&
+                  "tooltip tooltip-top tooltip-secondary before:content-[attr(data-tip)] before:right-[-10px] before:left-auto before:transform-none"
                 }`}
-                data-tip={`${writeDisabled && "Wallet not connected or in the wrong network"}`}
+                data-tip={`${(writeDisabled || !address) && "Wallet not connected or in the wrong network"}`}
               >
                 <button
                   className="btn btn-secondary btn-sm"
-                  disabled={!inputPrompt || isPending || loading}
+                  disabled={!inputPrompt || !address || isPending || loading}
                   onClick={sendRequest}
                 >
                   {isPending && <span className="loading loading-spinner loading-xs"></span>}

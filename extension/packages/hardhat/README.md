@@ -1,27 +1,35 @@
-# OnChainAI
+# OnChainAI 🤖
 
 ## Onchain `OpenAI` via `Chainlink Functions`
-*OnChainAI purpose is to propose a fully decentralized way to interact online, between smartcontracts and AI*
+*OnChainAI purpose is to propose a fully decentralized way to interact onchain, between smartcontracts and AI*
 
-## Description
+## Demo 👀
 
-- `OnChainAI extension` is a Scaffold-eth-2 extension, allowing you to developp Dapps using `OpenAI GPT`
+A running demo of `OnChainAI` using this extension (with also Scaffold-ETH [Fleek extension](https://github.com/zapaz/fleek-extension)) is available on IPFS here:
+- [https://many-jelly-incalculable.on-fleek.app/onchain-ai/](https://many-jelly-incalculable.on-fleek.app/onchain-ai/)
+
+
+![OnChainAI](./OnChainAI.png)
+
+
+
+## Description 📗
+
+- `OnChainAI extension` is a Scaffold-eth-2 extension, allowing you to develop Dapps using `OpenAI GPT`
 - `OnChainAI` protocol is an onchain solution for any smartcontracts to make AI calls.
 
 - `OnChainAI` uses [`OpenAI GPT4o-mini`](https://openai.com/api/) with [`Chainlink Functions`](https://functions.chain.link/).
-Each `OpenAI` request launched by `OnChainAI` is send by multiple `Chainlink` servers that have to reach consensus to return a unique answer. `Chainlink` answer can be retreive only after few blocks, and make took more than one minute, it depends on the network.
-
+Each `OpenAI` request launched by `OnChainAI` is sent by multiple `Chainlink` servers that have to reach consensus to return a unique answer. `Chainlink` answer can be retrieved only after a few blocks, and may take more than one minute, depending on the network.
 
 - `OnChainAI` is not free (on mainnet) as `Chainlink` requires some `LINK` tokens and `OpenAI` requires some `$`.
-Default model will be a fixed price of `0,0002 eth` per request.
+Default model will be a fixed price of `0.0002 eth` per request.
 BUT this will be changed in the future to a more dynamic pricing model.
 
-- You can use `OnChainAI` protocol as is, with the contracts already deployed, or you can deployed your own, where you will be able to set your own configuration, and decide for the price of AI requests.
+- You can use `OnChainAI` protocol as is, with the contracts already deployed, or you can deploy your own, where you will be able to set your own configuration, and decide on the price of AI requests.
 
-- `OnChainAI extension` is available with an `Hardhat` setup with 3 specific AI tasks to help you to start with `OnChainAI` protocol.
+- `OnChainAI extension` is available with a `Hardhat` setup with 3 specific AI tasks to help you start with the `OnChainAI` protocol.
 
-
-## Install
+## Install 🛠️
 
 Install via this command:
 ```sh
@@ -49,7 +57,7 @@ In all these commands use `hardhat` option `--network <NETWORK>` to specify the 
 
 Note that `OnChainAI` will not work on `hardhat` network (no `Chainlink` there...), so rather use a tesnet like `baseSepolia` or `optimismSepolia` for your tests (avoid `Sepolia` that is slower).
 
-## Usage
+## Usage 💡
 
 You can send your prompt to OnChainAI in different ways:
 1. using `debug` page of `Scaffold-eth-2` (`out of the box`)
@@ -58,7 +66,7 @@ You can send your prompt to OnChainAI in different ways:
 4. via your smartcontracts using `OnChainAI` protocol
 
 
-## Hardhat tasks
+## Hardhat tasks 🚀
 
 You can run hardhat AI task with `yarn hardhat --network <NETWORK> ai <TASK>`
 
@@ -74,7 +82,7 @@ AVAILABLE TASKS:
 ai: OnChainAI with Chainlink and OpenAI
 ```
 
-### request task
+### `request` task ❓
 **Main task**, to be used to send your prompt
 
 Ex: `yarn hardhat --network baseSepolia ai request --prompt "13 time 5 equal ?"`
@@ -90,7 +98,7 @@ request: Read last OnChainAI response [and send OnChainAI request]
 ```
 
 
-### secrets task
+### `secrets` task 🔒
 Admin task, to be used to upload your secrets to Chainlink
 
 Ex: `yarn hardhat --network baseSepolia ai secrets --expiration 10`
@@ -105,7 +113,7 @@ OPTIONS:
 secrets: Upload OnChainAI secrets to Chainlink
 ```
 
-### config task
+### `config` task ⚙️
 Admin task, to manage OnChainAI configuration
 
 Ex: `yarn hardhat --network baseSepolia ai config --price 0.0002`
@@ -131,7 +139,7 @@ Router address must be set **before** deployment of a new version of `OnChainAI`
 
 Config file can be found at [packages/hardhat/chainlink/config.json](chainlink/config.json)
 
-### Shortcut
+### Shortcut ⏩
 You can define a shortcut in your package.json like that :
 ```json
 "scripts": {
@@ -140,13 +148,13 @@ You can define a shortcut in your package.json like that :
 ```
 then call it with `yarn ai <TASK> <OPTIONS>`
 
-## OpenAI
+## OpenAI 🧠
 
 A specific `system prompt` is used for each OpenAI request, you can view it inside the javascript code run by `Chainlink DON` : [packages/hardhat/chainlink/source/onChainAI.js](chainlink/source/onChainAI.js)
 
 
-## Security
-In order to never store your secrets and private keys in plain text on your hard disk, this extension use `Chainlink env-enc` module to encrypt your secrets before storing them.
+## Security 🛡️
+In order to never store your secrets and private keys in plain text on your hard disk ("hi @PatrickAlphaC"), this extension use `Chainlink env-enc` module to encrypt your secrets before storing them.
 
 In order to setup `env-enc`, in hardhat directory first define a password with `yarn env-enc set-pw` then input your secrets with `yarn env-enc set`
 
@@ -158,9 +166,9 @@ Same ENV values are needed for both `dotenv` and `env-enc`:
 - `ETHERSCAN_API_KEY` : etherscan api key
 - `OPENAI_API_KEY` : openai api key
 
-OPENAI_API_KEY will be uploaded in a secure way to `Chainlink DON`  (don't use centralized S3 solutions also proposed by `Chainlink`)
+`OPENAI_API_KEY` will be uploaded in a secure way to `Chainlink DON`  (don't use centralized S3 solutions also proposed by `Chainlink`)
 
-## Limitations
+## Limitations 🚧
 
 - `Chainlink Functions` is currently in `beta` so as `OnChainAI` is.
 
@@ -171,7 +179,7 @@ i.e. you can ask '13 time 5 equal ?' but not ask 'Tell me a story'.
 And you can add to your prompt some requirements as: answer with  `one word`, `YES or NO` or `true or false`...
 
 
-## Roadmap
+## Roadmap  ➡️
 - deploy on Mainnet: requires some tuning on requested price, using some `Chainlink Oracle Price feed`
 - implement other AI models : `Mistral`, `Claude`, `Lama3` and other `OpenAI` models
 - deploy `OnChainAI` on all networks supported by `Chainlink Functions` (curently as of August 2024 : Ethereum, Arbitrum, Base, Optimism, Polygon, Avalanche)
